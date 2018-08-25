@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<style>
+    #btn_end {
+        background: cornflowerblue;
+    }
+
+    #btn_start {
+        background: indianred;
+    }
+
+    .btn {
+        margin: 1rem;
+    }
+    canvas {
+        border: 1px solid blue;
+    }
+</style>
+<head>
+    <title>Mon projet canvas</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/2.3.3/fabric.min.js"></script>
+    <script src="FileSaver.js"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<button id="btn_start">next</button>
+<button id="btn_end">map</button>
+<br>
+<div>
+    <input
+            type="file"
+            name="file"
+            id="file">
+</div>
+<canvas
+        id="mon_canvas"
+        width="5000"
+        height="5000"
+>
+</canvas>
+</body>
+
+<script src="generate_file.js"></script>
+<script src="move_f.js"></script>
+<script src="find_path.js"></script>
+<script src="canvas.js"></script>
+
+
+</html>
