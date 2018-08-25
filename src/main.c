@@ -85,7 +85,7 @@ int		main(void)
 			ft_printf("ERROR\n");
 	}
 	else
-		ft_printf("ERROR\n");
+		ft_printf("ERROR\n" );
 	free_lem(lem);
 	free(g_debug);
 	return (EXIT_SUCCESS);
