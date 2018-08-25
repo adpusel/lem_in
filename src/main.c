@@ -69,7 +69,6 @@ int		main(void)
 	t_lem	lem;
 	t_move	move;
 
-	move = NULL;
 	g_debug = set_debug(FALSE, FALSE, FALSE);
 	lem = ft_0_new_memory(sizeof(t_lem_00));
 	if (read_and_parse_data(lem) == TRUE)
@@ -89,7 +88,5 @@ int		main(void)
 		ft_printf("ERROR\n");
 	free_lem(lem);
 	free(g_debug);
-	while (1)
-		;
 	return (EXIT_SUCCESS);
 }
