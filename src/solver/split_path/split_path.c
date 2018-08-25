@@ -118,7 +118,7 @@ size_t		split_all_path(t_finde finder, t_map map)
 {
 	t_dll_l		cur_working_link;
 
-	while (finder->working_path->length < 500000
+	while (finder->working_path->length < 400000
 	&& finder->working_path->length)
 	{
 		cur_working_link = finder->working_path->top;

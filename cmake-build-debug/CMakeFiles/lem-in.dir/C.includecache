@@ -114,6 +114,10 @@ stdlib.h
 stdio.h
 /Users/adpusel/Dropbox/42/projects/lem_in/libft/include/stdio.h
 
+/Users/adpusel/Dropbox/42/projects/lem_in/src/debug/debug_set.c
+../includes/all_includes.h
+/Users/adpusel/Dropbox/42/projects/lem_in/src/includes/all_includes.h
+
 /Users/adpusel/Dropbox/42/projects/lem_in/src/includes/all_includes.h
 ../../libft/ft_library_header.h
 /Users/adpusel/Dropbox/42/projects/lem_in/libft/ft_library_header.h
@@ -153,8 +157,4 @@ struct.h
 /Users/adpusel/Dropbox/42/projects/lem_in/src/includes/struct_min.h
 stdio.h
 -
-
-/Users/adpusel/Dropbox/42/projects/lem_in/src/solver/split_path/split_path.c
-../../includes/all_includes.h
-/Users/adpusel/Dropbox/42/projects/lem_in/src/includes/all_includes.h
 

@@ -37,7 +37,7 @@ __LIB_FT_INC__ = ${__LIB_FT_PATH__}ft_library_header.h
 #*------------------------------------*\
 #    sources project push
 #*------------------------------------*/
-__SOURCES_PATH__ = ${__PATH__}src/
+__SOURCES_PATH__ = ${__PATH__}
 
 # COMMANDE find . -type f -name '.c' | sed 's/^..//'  |  tr '\n' ' ')
 #__TMP__ := $(shell cd ${__SOURCES_PATH__} ; find . -type f -name ' .c' | sed 's/^..//'  |  tr '\n' ' ' | pbcopy)
@@ -47,7 +47,7 @@ __SRC__ = $(addprefix $(__SOURCES_PATH__), $(__TMP__))
 
 __OBJ__ = $(__SRC__:.c=.o)
 
-__HEADER_DIR__ = ${__PATH__}src/includes/
+__HEADER_DIR__ = ${__PATH__}includes/
 
 # COMMAND find . -type f -name '*.h' | sed 's/^..//'  |  tr '\n' ' ' | pbcopy
 #__ALL_HADER__ = $(shell cd ${__HEADER_DIR__} ; find . -type f -name ' .h' | sed 's/^..//'  |  tr '\n' ' ' )
@@ -79,7 +79,7 @@ $(__NAME__): $(__OBJ__)
 #*------------------------------------*\
 #    if change into .c
 #*------------------------------------*/
-%.o: %.c $(__ALL_HADER__) ./src/includes/all_includes.h
+%.o: %.c $(__ALL_HADER__) includes/all_includes.h
 	@$(__CC__) $(__CFLAG__) -I $(__HEADER_DIR__) -I $(__LIB_FT_INC__) -o $@ -c $<
 
 

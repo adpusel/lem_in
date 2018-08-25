@@ -30,7 +30,8 @@ t_debug	set_debug(int is_on, int little, int err)
 		db->final_path = TRUE;
 	}
 	(void)"  set le fichier a check  ";
-	db->fd_file = 0;
+	db->fd_file = open_file("/Users/adpusel/Dropbox/42/projects/lem_in/vog/test/test_violent/test_1");
+//	db->fd_file = 0;
 	g_debug = db;
 	return (db);
 }
