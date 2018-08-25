@@ -27,20 +27,16 @@
 # include "struct_min.h"
 
 /*
-**    err
+**    g_debug
 */
-# include "err_name.h"
-
-/*
-**    debug
-*/
-void print_room_dll_l(void *room_ptr);
+void	print_room_dll_l(void *room_ptr);
 
 /*
 **    DEFINE
 */
-#define L_START 1
-#define L_END -1
-
+# define L_START 1
+# define L_END -1
+# define ERR_FOURMIS_1 "le nombre de fourmis n'est pas un integer"
+# define ERR_FOURMIS_2 "le nb de fourmis n'est pas positif"
 
 #endif

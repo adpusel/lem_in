@@ -15,13 +15,13 @@
 int		print_err_retrun_int(char *err_name, int display)
 {
 	if (display)
-		printf("%s \n", err_name);
+		ft_printf("%s \n", err_name);
 	return (FALSE);
 }
 
 void	*print_err_retrun_null(char *err_name, int display)
 {
 	if (display)
-		printf("%s \n", err_name);
+		ft_printf("%s \n", err_name);
 	return (NULL);
 }

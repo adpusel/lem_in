@@ -50,7 +50,7 @@ t_real_path	new_real_path(t_path path, t_dll room_list)
 	real = ft_0_new_memory(sizeof(t_real_path_00));
 	real->size = path->size;
 	real->list_path = good_list(path, room_list);
-	if (DEBUG->final_path)
+	if (g_debug->final_path)
 	{
 		dll_func(real->list_path, print_path_link);
 		ft_printf(" \n");
@@ -62,7 +62,7 @@ t_real_path	new_real_path(t_path path, t_dll room_list)
 ** je remplit le tab avec les chemins correct les real path
 */
 
-void		fill_tab(t_b_path best_path, t_finder finder, t_real_path *real_tab,
+void		fill_tab(t_b_path best_path, t_finde finder, t_real_path *real_tab,
 t_dll room_list)
 {
 	t_dll_l		link;
@@ -84,7 +84,7 @@ t_dll room_list)
 	}
 }
 
-t_move		new_move(t_data data, t_b_path best_path, t_finder finder)
+t_move		new_move(t_data data, t_b_path best_path, t_finde finder)
 {
 	t_move	move;
 
@@ -95,10 +95,10 @@ t_move		new_move(t_data data, t_b_path best_path, t_finder finder)
 	move->tab[best_path->nb] = NULL;
 	move->size_tab = best_path->nb;
 	move->end_room = data->end_room;
-	if (DEBUG->final_path)
+	if (g_debug->final_path)
 		ft_printf("\n\n----> les finals paht trouve \n");
 	fill_tab(best_path, finder, move->tab, data->room);
-	if (DEBUG->final_path)
+	if (g_debug->final_path)
 		ft_printf("----\n\n\n");
 	return (move);
 }

@@ -77,7 +77,7 @@
 # include "include/align.h"
 
 /*
-**    debug
+**    g_debug
 */
 # include "include/libft_debug.h"
 

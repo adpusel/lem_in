@@ -62,7 +62,7 @@ int			is_already_taken(t_path cur_path, int name_current_room)
 **			je l'ajoute au new_path
 */
 
-void		split_path(t_map map, t_finder finder, t_path cur_path)
+void		split_path(t_map map, t_finde finder, t_path cur_path)
 {
 	char	*map_line;
 	t_dll_l	path_link;
@@ -84,11 +84,12 @@ void		split_path(t_map map, t_finder finder, t_path cur_path)
 	}
 }
 
-void		deb_split(t_finder finder)
+void		deb_split(t_finde finder)
 {
-	if (DEBUG->print_split)
+	if (g_debug->print_split)
 	{
-		ft_printf("\n\n----> working path -- %lu\n", finder->working_path->length);
+		ft_printf("\n\n----> working path -- %lu\n",
+			finder->working_path->length);
 		dll_func(finder->working_path, print_path_dll);
 		ft_printf("---- \n");
 		ft_printf("----> valid path -- %lu \n", finder->valid_path->length);
@@ -113,12 +114,12 @@ void		deb_split(t_finder finder)
 **	nettoie et genere un nouveau cache avec --  clean_woking --
 */
 
-size_t		split_all_path(t_finder finder, t_map map)
+size_t		split_all_path(t_finde finder, t_map map)
 {
 	t_dll_l		cur_working_link;
-	static int	i = 0;
 
-	while (i < 9 && finder->working_path->length)
+	while (finder->working_path->length < 500000
+	&& finder->working_path->length)
 	{
 		cur_working_link = finder->working_path->top;
 		while (cur_working_link)
@@ -128,7 +129,6 @@ size_t		split_all_path(t_finder finder, t_map map)
 		}
 		deb_split(finder);
 		clean_woking(finder);
-		i++;
 	}
 	return (finder->valid_path->length ? TRUE : FALSE);
 }

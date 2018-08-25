@@ -12,10 +12,10 @@
 
 #include "../includes/all_includes.h"
 
-t_finder	new_finder(t_data data, int new_room_start,
+t_finde	new_finder(t_data data, int new_room_start,
 		t_map map, t_cache cache)
 {
-	t_finder	finder;
+	t_finde	finder;
 
 	finder = ft_0_new_memory(sizeof(t_finder_00));
 	finder->new_path = new_dll();

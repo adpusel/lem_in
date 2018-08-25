@@ -83,7 +83,7 @@ void	test_current_path(t_map map, t_b_path cache, int cur_line)
 **		je reset le cache
 */
 
-void	is_bettre_best_path(t_best_path best, int cur_line, size_t nb_path)
+void	is_bettre_best_path(t_best best, int cur_line, size_t nb_path)
 {
 	t_b_path	cache;
 	t_b_path	data;
@@ -101,7 +101,7 @@ void	is_bettre_best_path(t_best_path best, int cur_line, size_t nb_path)
 	cache->nb = 0;
 }
 
-void	find_best_path(t_map map, t_best_path best)
+void	find_best_path(t_map map, t_best best)
 {
 	size_t		line;
 
@@ -114,7 +114,7 @@ void	find_best_path(t_map map, t_best_path best)
 		best->data.tab[best->data.line] = TRUE;
 		++line;
 	}
-	if (DEBUG->map_path)
+	if (g_debug->map_path)
 	{
 		ft_printf("----> les chemins independants \n");
 		print_line_first_int(best->data.tab, map->line, 0);

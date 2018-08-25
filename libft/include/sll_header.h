@@ -47,7 +47,7 @@ t_sll_l				sll_drop_index(t_sll_l link, t_sll list);
 */
 
 /*
-**    debug ====================================================================
+**    g_debug ==================================================================
 */
 void				sll_print_str(t_sll list);
 void				sll_print_str_link(t_sll_l link);

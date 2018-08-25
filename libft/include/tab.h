@@ -38,7 +38,7 @@ void				destruct_v_tab(t_vt *tab_ptr);
 void				vt_get_dll(t_vt tab_ptr, t_dll list);
 
 /*
-**    DEBUG ========================================================
+**    g_debug ========================================================
 */
 void				vt_print_func(t_vt tab_ptr, int (*func)(void*, void*),
 	void *ptr);

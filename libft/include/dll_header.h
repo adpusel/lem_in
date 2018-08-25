@@ -92,7 +92,7 @@ t_dll_l		dll_drop_list_one(t_dll list);
 t_dll_l		get_good_link(size_t index, t_dll list);
 
 /*
-**    debug ====================================================================
+**    g_debug ==================================================================
 */
 t_void___	dll_func(t_dll lst, void(*func)(void *));
 void		dll_func_where(t_dll lst, void (*func)(t_dll_l));

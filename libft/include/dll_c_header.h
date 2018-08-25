@@ -52,7 +52,7 @@ void					dll_link_copie_reverse(t_dll_l link,
 */
 
 /*
-**    debug ====================================================================
+**    g_debug ==================================================================
 */
 void					dll_c_print_lst(t_dll_c lst);
 void					dll_c_print_lst_reverse(t_dll_c lst);

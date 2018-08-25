@@ -12,10 +12,10 @@
 
 #include "../includes/all_includes.h"
 
-t_best_path		new_best_path(size_t nb_path)
+t_best		new_best_path(size_t nb_path)
 {
-	t_best_path		best;
-	t_b_path		cache;
+	t_best		best;
+	t_b_path	cache;
 
 	best = ft_0_new_memory(sizeof(t_best_path_00));
 	cache = &best->cache;

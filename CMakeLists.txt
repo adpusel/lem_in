@@ -14,7 +14,7 @@ project(${PROJECT_NAME} C)
 #*------------------------------------*/
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_COMPILER "/usr/bin/gcc")
-set(CMAKE_C_FLAGS "-Wall -Wextra -Werror")
+set(CMAKE_C_FLAGS "-Wall -Wextra -Werror -og -g3")
 
 #-fsanitize=memory-fsanitize-memory-track-origins=2 -fsanitize=address
 
@@ -91,7 +91,7 @@ set(
         ${head}
         ${head_lib}
         ${all_head_lib}
-        )
+        src/solver/move_f_main.c src/main_2.c)
 #*------------------------------------*\
 #    --  ADD TO PROGRAMME  --
 #*------------------------------------*/

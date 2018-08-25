@@ -17,7 +17,7 @@ static void	print_err(void *link)
 	t_err1_link err1;
 
 	err1 = link;
-	printf("%s\n", err1->name_err);
+	ft_printf("%s\n", err1->name_err);
 }
 
 void		err1_print_err(t_err1 err1)

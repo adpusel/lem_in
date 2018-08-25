@@ -68,11 +68,11 @@ void	fill_map_with_tunnel(t_data data, t_map map)
 		map->map[(x * map->line) + y] = 1;
 		tunnel_link = tunnel_link->next;
 	}
-	if (DEBUG->map_tunnel)
+	if (g_debug->map_tunnel)
 	{
-		printf("\n\n---> la carte des link enter les salles \n\n");
+		ft_printf("\n\n---> la carte des link enter les salles \n\n");
 		print_map(map->map, map->col);
-		printf("\n-------------------------------- \n\n");
+		ft_printf("\n-------------------------------- \n\n");
 	}
 }
 

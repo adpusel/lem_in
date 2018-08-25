@@ -14,7 +14,7 @@
 # define LIBFT_DEBUG_H
 
 /*
-**    str debug
+**    str g_debug
 */
 void		debug_print_tab_str(char **t);
 void		debug_print_tab_nb(int tab[], int lim);

@@ -17,7 +17,7 @@ function run_test()
             if [[ "$file" != "lem-in" && "$file" != "a.sh" ]]
             then
                     echo "\033[1;31m----> $file \033[0m"
-                    ./lem-in < "$name_test/$file" | head -n 1
+                    ./lem-in < "$name_test/$file" | head -n 2
             fi
     done
     echo

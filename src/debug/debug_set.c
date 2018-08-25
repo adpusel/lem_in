@@ -12,34 +12,25 @@
 
 #include "../includes/all_includes.h"
 
-t_debug_struct DEBUG;
+t_debug g_debug;
 
-t_debug_struct set_debug(int is_on)
+t_debug	set_debug(int is_on, int little, int err)
 {
-	t_debug_struct db;
+	t_debug db;
 
-	db = ft_0_new_memory(sizeof(t_debug_struct_00));
-	(void) "  set les demandes de debug  ";
+	db = ft_0_new_memory(sizeof(t_db));
+	db->little = little;
+	db->print_err = err;
+	(void)"  set les demandes de g_debug  ";
 	if (is_on == TRUE)
 	{
-		db->print_err = TRUE;
 		db->map_tunnel = TRUE;
 		db->print_split = TRUE;
 		db->map_path = TRUE;
 		db->final_path = TRUE;
-		db->little = TRUE;
 	}
-
-	(void) "  set le fichier a check  ";
-	db->fd_file = open_file(
-		"/Users/adpusel/Dropbox/42/projects/lem_in/rendu/test/test_violent/8000_hard"
-//  "/Users/adpusel/Dropbox/42/projects/lem_in/rendu/test/3__link_no_work/"
-		//		"/Users/adpusel/Dropbox/42/projects/lem_in/rendu/test/test_violent/haha"
-	);
-	//	db->fd_file = 0;
-
-	DEBUG = db;
+	(void)"  set le fichier a check  ";
+	db->fd_file = 0;
+	g_debug = db;
 	return (db);
 }
-
-

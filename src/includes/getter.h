@@ -12,44 +12,43 @@
 
 #ifndef GETTER_H
 # define GETTER_H
-#include "all_includes.h"
+# include "all_includes.h"
+
 /*
 **    data
 */
 typedef struct		s_data_00
 {
-	t_dll room;
-	t_dll tunnel;
-	int start_room;
-	int end_room;
-	int x;
-	int y;
-	int nb_fourmis;
-	int lim;
-} 					t_data_00;
+	t_dll			room;
+	t_dll			tunnel;
+	int				start_room;
+	int				end_room;
+	int				x;
+	int				y;
+	int				nb_fourmis;
+	int				lim;
+}					t_data_00;
 typedef t_data_00 *t_data;
-
 
 /*
 **    utils
 */
 typedef struct		s_get_utils_00
 {
-	char *line;
-	int fd;
-	int type_salle;
-} 					t_get_utils_00;
-typedef t_get_utils_00 *t_get_utils;
-
+	char			*line;
+	int				fd;
+	int				type_salle;
+}					t_get_util;
+typedef t_get_util	*t_get_utils;
 
 /*
 **    getter
 */
 typedef struct		s_getter_00
 {
-	t_data data;
-	t_get_utils_00 utils;
-} 					t_getter_00;
-typedef t_getter_00 *t_getter;
+	t_data			data;
+	t_get_util		utils;
+}					t_getter_00;
+typedef t_getter_00	*t_getter;
 
 #endif

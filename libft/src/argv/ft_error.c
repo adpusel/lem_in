@@ -15,5 +15,5 @@
 int	ft_error(char *error_name)
 {
 	ft_putendl_fd(error_name, 2);
-	exit(EXIT_FAILURE);
+	return (FALSE);
 }

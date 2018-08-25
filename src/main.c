@@ -13,27 +13,48 @@
 #include <stdio.h>
 #include "includes/function.h"
 
-void set_up()
+void	print_map(char *tab_room, size_t size_line)
 {
-	(void) "  ft_printf dans besoin du \n  ";
-	setbuf(stdout, NULL);
+	size_t	i;
+	size_t	line;
+	int		letter;
+	size_t	lim;
+
+	i = 0;
+	line = 0;
+	letter = 'B';
+	lim = size_line * size_line;
+	print_name(size_line);
+	ft_printf("\nA   ");
+	while (i < lim)
+	{
+		ft_printf("%2c ", tab_room[i] ? 'X' : '.');
+		++i;
+		++line;
+		if (line == size_line && i < lim)
+		{
+			ft_printf(" \n%c   ", letter);
+			letter++;
+			line = 0;
+		}
+	}
+	ft_printf("\n");
 }
 
-void set_up_algo(t_lem lem, t_data data)
+void	set_up_algo(t_lem lem, t_data data)
 {
-	t_map map;
-	t_cache cache;
-	t_algo algo;
+	t_map	map;
+	t_cache	cache;
+	t_algo	algo;
 
-	(void) "  set up cache  ";
+	(void)"  set up cache  ";
 	lem->algo = ft_0_new_memory(sizeof(t_algo_00));
 	algo = lem->algo;
-
 	cache = &algo->cache;
 	cache->all_path = new_dll();
 	cache->valid_path = new_dll();
 	cache->end_room = data->end_room;
-	(void) "  set up map  ";
+	(void)"  set up map  ";
 	algo->map = ft_0_new_memory(sizeof(t_map_00));
 	map = algo->map;
 	map->col = data->room->length;
@@ -43,56 +64,13 @@ void set_up_algo(t_lem lem, t_data data)
 	fill_map_with_tunnel(data, map);
 }
 
-void print_room_end(void *room_ptr)
+int		main(void)
 {
-	t_room room;
+	t_lem	lem;
+	t_move	move;
 
-	room = room_ptr;
-	if (room->type == L_START)
-		ft_printf("##start\n");
-	if (room->type == L_END)
-		ft_printf("##end\n");;
-	ft_printf("%s %d %d\n", room->name, room->x, room->y);
-}
-
-void print_tunnel_end(void *tunnel_ptr)
-{
-	t_tunnel tunnel;
-
-	tunnel = tunnel_ptr;
-	ft_printf("%s-%s\n", tunnel->room_1->name, tunnel->room_2->name);
-}
-
-void print_data(t_data data)
-{
-	ft_printf("%d \n", data->nb_fourmis);
-	dll_func(data->room, &print_room_end);
-	dll_func(data->tunnel, print_tunnel_end);
-	ft_printf(" \n");
-}
-
-void kill_move(t_move move, size_t lim)
-{
-	t_real_path real;
-	size_t i = 0;
-
-	while (i < lim)
-	{
-		real = move->tab[i];
-		destroy_dll(&real->list_path);
-		free(real);
-		++i;
-	}
-	free(move->tab);
-	free(move);
-}
-
-int main()
-{
-	t_lem lem;
-	t_move move = NULL;
-
-	DEBUG = set_debug(FALSE);
+	move = NULL;
+	g_debug = set_debug(FALSE, FALSE, FALSE);
 	lem = ft_0_new_memory(sizeof(t_lem_00));
 	if (read_and_parse_data(lem) == TRUE)
 	{
@@ -105,11 +83,13 @@ int main()
 			kill_move(move, move->size_tab);
 		}
 		else
-			ft_printf("no solution\n");
+			ft_printf("ERROR\n");
 	}
 	else
-		ft_printf("no solution\n");
+		ft_printf("ERROR\n");
 	free_lem(lem);
-	free(DEBUG);
+	free(g_debug);
+	while (1)
+		;
 	return (EXIT_SUCCESS);
 }

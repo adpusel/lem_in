@@ -17,7 +17,7 @@ int			is_already_taken2(char *tab_all_taken_room, int name_current_room)
 	return (tab_all_taken_room[name_current_room]);
 }
 
-void		split_path2(t_map map, t_finder finder, t_path cur_path, char *tab)
+void		split_path2(t_map map, t_finde finder, t_path cur_path, char *tab)
 {
 	char		*map_line;
 	t_dll_l		path_link;
@@ -40,7 +40,7 @@ void		split_path2(t_map map, t_finder finder, t_path cur_path, char *tab)
 	}
 }
 
-size_t		split_all_path2(t_finder finder, t_map map, char *tab)
+size_t		split_all_path2(t_finde finder, t_map map, char *tab)
 {
 	t_dll_l		cur_working_link;
 	static int	i = 0;
@@ -59,9 +59,9 @@ size_t		split_all_path2(t_finder finder, t_map map, char *tab)
 	return (finder->valid_path->length ? TRUE : FALSE);
 }
 
-t_finder	shorty_baby(t_cache cache, t_data data, t_map map)
+t_finde		shorty_baby(t_cache cache, t_data data, t_map map)
 {
-	t_finder	finder;
+	t_finde		finder;
 	t_dll_l		path_l;
 	char		*tab;
 

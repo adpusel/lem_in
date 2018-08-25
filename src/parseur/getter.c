@@ -18,9 +18,9 @@ int		get_nb_foumis(t_getter get)
 
 	ask_gnl(get->utils.fd, &get->utils.line, NULL);
 	if (str_is_int(get->utils.line, &result) == FAIL)
-		return (print_err_retrun_int(ERR_FOURMIS_1, DEBUG->print_err));
+		return (print_err_retrun_int(ERR_FOURMIS_1, g_debug->print_err));
 	else if (result <= 0)
-		return (print_err_retrun_int(ERR_FOURMIS_2, DEBUG->print_err));
+		return (print_err_retrun_int(ERR_FOURMIS_2, g_debug->print_err));
 	get->data->nb_fourmis = ft_atoi(get->utils.line);
 	return (TRUE);
 }
@@ -37,17 +37,21 @@ int		get_nb_foumis(t_getter get)
 int		lem_getter(t_data data)
 {
 	t_getter_00	get;
+	int			ret;
 
+	ret = 1;
 	ft_memset(&get, 0, sizeof(t_getter_00));
 	get.data = data;
 	(void)"  je set utils  ";
-	get.utils.fd = DEBUG->fd_file;
+	get.utils.fd = g_debug->fd_file;
 	if (get_nb_foumis(&get) == FALSE)
-		return (FALSE);
-	if (get_room(get.data, &get.utils) == FALSE)
-		return (FALSE);
-	get_tunnel(data, &get.utils);
-	return (TRUE);
+		ret = FALSE;
+	if (ret && get_room(get.data, &get.utils) == FALSE)
+		ret = FALSE;
+	if (ret)
+		get_tunnel(data, &get.utils);
+	free_str(&get.utils.line);
+	return (ret);
 }
 
 void	check_data(t_data data)
@@ -78,7 +82,7 @@ int		read_and_parse_data(t_lem lem)
 	data->end_room = -1;
 	ret = lem_getter(data);
 	lem->data = data;
-	if (DEBUG->parseur == TRUE)
+	if (g_debug->parseur == TRUE)
 		check_data(data);
 	return (ret);
 }

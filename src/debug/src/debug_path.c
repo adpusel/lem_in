@@ -12,18 +12,7 @@
 
 #include "../../includes/all_includes.h"
 
-void print_cache_list(t_dll_l path_link)
-{
-	t_path path;
-
-	path = path_link->content;
-
-	ft_printf("%c <-- ", path->prev->room + 'A');
-	ft_printf("%d - ", path->size);
-	ft_printf("%c\n", path->room + 'A');
-}
-
-void print_path_link(void *link)
+void	print_path_link(void *link)
 {
 	t_path path;
 
@@ -31,19 +20,8 @@ void print_path_link(void *link)
 	ft_printf("%d-", path->room + 1);
 }
 
-void print_path_link_nb(t_dll_l link)
+void	print_path(t_path path)
 {
-	t_path path;
-
-	path = link->content;
-	ft_printf("%d - ", path->room);
-}
-
-
-void print_path(t_path path)
-{
-	//	path = path->prev;
-	//	while (path->prev)
 	while (path)
 	{
 		ft_printf("%c %d -- ", path->room + 'A', path->size);
@@ -52,38 +30,7 @@ void print_path(t_path path)
 	ft_printf(" \n");
 }
 
-void print_path_dll(void *link)
+void	print_path_dll(void *link)
 {
 	print_path(link);
-}
-
-void print_path_dll_order(void *link)
-{
-	t_path path;
-	size_t i;
-	size_t ii;
-
-	path = link;
-	i = 0;
-	while (path)
-	{
-		path = path->prev;
-		i++;
-	}
-	i--;
-	while (i)
-	{
-		ii = 0;
-		path = link;
-		while (ii < i)
-		{
-			path = path->prev;
-			++ii;
-		}
-		ft_printf("%c %d -- ", path->room + 'A', path->size);
-		--i;
-	}
-	path = link;
-	ft_printf("%c %d -- ", path->room + 'A', path->size);
-	ft_printf(" \n");
 }

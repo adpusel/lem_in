@@ -101,15 +101,3 @@ int			move_all_f(t_move move)
 	}
 	return (res);
 }
-
-void		manage_move(t_move move)
-{
-	while (put_f_all_start(move))
-	{
-		ft_printf("\n");
-		move_all_f(move);
-	}
-	ft_printf("\n");
-	while (move_all_f(move))
-		ft_printf("\n");
-}

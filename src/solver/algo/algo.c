@@ -12,7 +12,7 @@
 
 #include "../../includes/all_includes.h"
 
-void		*destroy_finder(t_finder finder)
+void		*destroy_finder(t_finde finder)
 {
 	free(finder->taken_room);
 	destroy_dll_func(&finder->working_path, dll_l_notfree_content);
@@ -21,11 +21,11 @@ void		*destroy_finder(t_finder finder)
 	return (NULL);
 }
 
-t_move		is_solution(t_finder finder, t_data data)
+t_move		is_solution(t_finde finder, t_data data)
 {
 	t_move		move;
 	t_map		path_map;
-	t_best_path	best;
+	t_best		best;
 
 	move = NULL;
 	path_map = generate_path_map(data->room, finder->valid_path);
@@ -41,24 +41,25 @@ t_move		is_solution(t_finder finder, t_data data)
 
 t_move		algo(t_cache cache, t_data data, t_map map)
 {
-	t_finder		finder;
+	t_finde			finder;
 	t_move			move;
-//	t_dll_l			path_l;
+	t_dll_l			path_l;
 
 	move = NULL;
 	finder = new_finder(data, data->start_room, map, cache);
-//	path_l = new_path_link(finder->start_room, NULL, finder->all_path, 0);
-//	split_path(map, finder, path_l->content);
-//	clean_woking(finder);
-//	destroy_dll_l_func(&path_l, dll_l_notfree_content);
-	if (DEBUG->little == TRUE
+	path_l = new_path_link(finder->start_room, NULL, finder->all_path, 0);
+	split_path(map, finder, path_l->content);
+	clean_woking(finder);
+	destroy_dll_l_func(&path_l, dll_l_notfree_content);
+	if (g_debug->little == TRUE
 			|| split_all_path(finder, map) == FALSE)
 	{
 		split_all_path(finder, map);
 		destroy_finder(finder);
 		finder = shorty_baby(cache, data, map);
 	}
-//	if (finder->valid_path->length > 0)
+	if (finder->valid_path->length > 0)
 		move = is_solution(finder, data);
+	destroy_finder(finder);
 	return (move);
 }

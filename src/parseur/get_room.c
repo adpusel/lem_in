@@ -61,12 +61,12 @@ t_dll_l	add_room_link(t_data data, t_get_utils utils)
 int		check_err_room(t_data data)
 {
 	if (data->start_room < 0)
-		return (print_err_retrun_int("pas de start", DEBUG->print_err));
+		return (print_err_retrun_int("pas de start", g_debug->print_err));
 	if (data->end_room < 0)
-		return (print_err_retrun_int("pas de end", DEBUG->print_err));
+		return (print_err_retrun_int("pas de end", g_debug->print_err));
 	if (data->start_room == data->end_room)
 		return (print_err_retrun_int("start et end sont les memes",
-					DEBUG->print_err));
+					g_debug->print_err));
 	else
 		return (TRUE);
 }
@@ -88,7 +88,7 @@ int		get_room(t_data data, t_get_utils utils)
 				utils->line[0] == 'L')
 			{
 				print_err_retrun_int("- dans le nom de la room",
-						DEBUG->print_err);
+						g_debug->print_err);
 				break ;
 			}
 			if (add_room_link(data, utils) == FALSE)

@@ -15,7 +15,7 @@ __PATH__ = ./
 #*------------------------------------*\
 #    name
 #*------------------------------------*/
-__NAME__ = lem
+__NAME__ = lem-in
 
 
 #*------------------------------------*\
@@ -39,8 +39,9 @@ __LIB_FT_INC__ = ${__LIB_FT_PATH__}ft_library_header.h
 #*------------------------------------*/
 __SOURCES_PATH__ = ${__PATH__}src/
 
-__TMP__ := $(shell cd ${__SOURCES_PATH__} ; find . -type f -name '*.c' | sed 's/^..//'  |  tr '\n' ' ')
-#__TMP__ =  debug.c getter_data/build_list_a_index.c getter_data/get_list_a.c getter_data/getter_is_good_nb.c getter_data/getter_utils.c solver/algo/brain.c solver/algo/is_just_three.c solver/browse/browse_simple.c solver/browse/first_browser.c solver/commun/get_median.c solver/instruct/instruct_helper.c solver/instruct/push_new_instruct.c solver/main_solver.c solver/quick/get_med_quick.c solver/quick/quick.c solver/quick/set_and_get_quick.c solver/sort/manage_sort.c solver/sort/sort_3_and_2.c solver/sort/sort_4.c solver/sort/sort_bower.c stack/construct_stack.c stack/src/pile_p.c stack/src/pile_r.c stack/src/pile_rr.c stack/src/pile_s.c stack/src/swap.c
+# COMMANDE find . -type f -name '.c' | sed 's/^..//'  |  tr '\n' ' ')
+#__TMP__ := $(shell cd ${__SOURCES_PATH__} ; find . -type f -name ' .c' | sed 's/^..//'  |  tr '\n' ' ' | pbcopy)
+__TMP__ = data/best_path.c data/finder_finder_link.c data/lem.c data/map.c data/move.c data/room.c data/tunnel.c debug/debug_set.c debug/src/debug_map.c debug/src/debug_parseur.c debug/src/debug_path.c main.c main_2.c parseur/get_room.c parseur/get_room_utils.c parseur/get_tunnel.c parseur/getter.c solver/algo/algo.c solver/algo/find_best_path.c solver/algo/shorty_baby.c solver/move_f.c solver/move_f_main.c solver/sort_path/generate_map_path.c solver/split_path/clean_working_dll.c solver/split_path/split_path.c
 
 __SRC__ = $(addprefix $(__SOURCES_PATH__), $(__TMP__))
 
@@ -48,7 +49,11 @@ __OBJ__ = $(__SRC__:.c=.o)
 
 __HEADER_DIR__ = ${__PATH__}includes/
 
-__ALL_HADER__ = $(shell cd ${__HEADER_DIR__} ; find . -type f -name '*.h' | sed 's/^..//'  |  tr '\n' ' ')
+# COMMAND find . -type f -name '*.h' | sed 's/^..//'  |  tr '\n' ' ' | pbcopy
+#__ALL_HADER__ = $(shell cd ${__HEADER_DIR__} ; find . -type f -name ' .h' | sed 's/^..//'  |  tr '\n' ' ' )
+__ALL_HADER__OBJ = all_includes.h function.h getter.h struct.h struct_algo.h struct_min.h
+__ALL_HADER__= $(addprefix $(includes), $(__ALL_HADER__OBJ))
+
 #*------------------------------------*\
 #    make rule
 #*------------------------------------*/
@@ -68,7 +73,7 @@ $(__NAME__): $(__OBJ__)
 #	compile project 	################################
 	@$(__CC__) $(__CFLAGS__) -o $(__NAME__) $(__OBJ__) -L${__LIB_FT_PATH__} -lft
 
-	$(shell mv lem ./test)
+	$(shell mv lem_in ./test)
 	$(__TEXT_1__) $(__NAME__) $(__TEXT_2__)
 
 #*------------------------------------*\
