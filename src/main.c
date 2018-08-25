@@ -48,7 +48,7 @@ void	set_up_algo(t_lem lem, t_data data)
 	t_algo	algo;
 
 	(void)"  set up cache  ";
-	lem->algo = ft_0_new_memory(sizeof(t_algo_00));
+	lem->algo = ft_0_new_memory(sizeof(t_algo_00 ));
 	algo = lem->algo;
 	cache = &algo->cache;
 	cache->all_path = new_dll();
