@@ -48,7 +48,7 @@ void	set_up_algo(t_lem lem, t_data data)
 	t_algo	algo;
 
 	(void)"  set up cache  ";
-	lem->algo = ft_0_new_memory(sizeof(t_algo_00));
+	lem->algo = ft_0_new_memory(sizeof(t_algo_00 ));
 	algo = lem->algo;
 	cache = &algo->cache;
 	cache->all_path = new_dll();
@@ -69,7 +69,6 @@ int		main(void)
 	t_lem	lem;
 	t_move	move;
 
-	move = NULL;
 	g_debug = set_debug(FALSE, FALSE, FALSE);
 	lem = ft_0_new_memory(sizeof(t_lem_00));
 	if (read_and_parse_data(lem) == TRUE)
@@ -86,10 +85,8 @@ int		main(void)
 			ft_printf("ERROR\n");
 	}
 	else
-		ft_printf("ERROR\n");
+		ft_printf("ERROR\n" );
 	free_lem(lem);
 	free(g_debug);
-	while (1)
-		;
 	return (EXIT_SUCCESS);
 }
