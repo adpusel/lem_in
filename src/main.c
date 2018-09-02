@@ -18,7 +18,7 @@ void	print_map(char *tab_room, size_t size_line)
 	size_t	i;
 	size_t	line;
 	int		letter;
-	size_t	lim;
+	size_t	lim
 
 	i = 0;
 	line = 0;
