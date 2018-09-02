@@ -1,0 +1,660 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Lem-in"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/adpusel/Dropbox/42/projects/lem_in/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/adpusel/Dropbox/42/projects/lem_in/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/adpusel/Dropbox/42/projects/lem_in/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/adpusel/Dropbox/42/projects/lem_in/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/adpusel/Dropbox/42/projects/lem_in/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/adpusel/Dropbox/42/projects/lem_in/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/adpusel/Dropbox/42/projects/lem_in/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/adpusel/Dropbox/42/projects/lem_in/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/adpusel/Dropbox/42/projects/lem_in/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/adpusel/Dropbox/42/projects/lem_in/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/adpusel/Dropbox/42/projects/lem_in/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/adpusel/Dropbox/42/projects/lem_in/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/adpusel/Dropbox/42/projects/lem_in/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/adpusel/Dropbox/42/projects/lem_in/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/adpusel/Dropbox/42/projects/lem_in/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Lem-in">
+				<Option output="/Users/adpusel/Dropbox/42/projects/lem_in/cmake-build-debug/Lem-in" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/adpusel/Dropbox/42/projects/lem_in/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/adpusel/Dropbox/42/projects/lem_in/cmake-build-debug/Makefile&quot;  VERBOSE=1 Lem-in"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/adpusel/Dropbox/42/projects/lem_in/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/adpusel/Dropbox/42/projects/lem_in/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/adpusel/Dropbox/42/projects/lem_in/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Lem-in/fast">
+				<Option output="/Users/adpusel/Dropbox/42/projects/lem_in/cmake-build-debug/Lem-in" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/adpusel/Dropbox/42/projects/lem_in/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/adpusel/Dropbox/42/projects/lem_in/cmake-build-debug/Makefile&quot;  VERBOSE=1 Lem-in/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/adpusel/Dropbox/42/projects/lem_in/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/adpusel/Dropbox/42/projects/lem_in/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/adpusel/Dropbox/42/projects/lem_in/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/ft_library_header.h">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/include/align.h">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/include/argv.h">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/include/dll_c_header.h">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/include/dll_header.h">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/include/dll_l_header.h">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/include/err_header.h">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/include/libft_debug.h">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/include/libft_define.h">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/include/libft_memory_function.h">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/include/libft_nb_function.h">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/include/libft_str_function.h">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/include/printf_header.h">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/include/sll_header.h">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/include/sll_l_header.h">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/include/tab.h">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/argv/ask_gnl.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/argv/errno_exit.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/argv/ft_error.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/argv/get_next_line.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/argv/open_file.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/argv/split/construct_split.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/argv/split/ft_free_split.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/argv/split/ft_strsplit.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/argv/split/str_split_get.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/debug/print_tab.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/error/err1/err1_add_error.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/error/err1/err1_print_err.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/error/err1/new_error1.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/error/print_err_and_return.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/list/depreciate/dll_fill_list_circular.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/list/double_list/double_linked_list/debug/dll_func.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/list/double_list/double_linked_list/debug/dll_print_nb.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/list/double_list/double_linked_list/debug/dll_print_str.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/list/double_list/double_linked_list/dll_construct.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/list/double_list/double_linked_list/src/dll_add.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/list/double_list/double_linked_list/src/dll_delete_link.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/list/double_list/double_linked_list/src/dll_drop_index.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/list/double_list/double_linked_list/src/dll_drop_link.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/list/double_list/double_linked_list/src/dll_find.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/list/double_list/double_linked_list/src/dll_index.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/list/double_list/double_linked_list/src/dll_index_link.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/list/double_list/double_linked_list/src/dll_ptr_add_create.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/list/double_list/double_linked_list/src/dll_push.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/list/double_list/double_linked_list/utils.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/list/double_list/double_linked_list_circular/debug/dll_c_debug_print.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/list/double_list/double_linked_list_circular/dll_c_construct.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/list/double_list/double_linked_list_circular/src/dll_c_add_after.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/list/double_list/double_linked_list_circular/src/dll_c_copie.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/list/double_list/double_linked_list_circular/src/dll_c_drop_link.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/list/double_list/double_linked_list_circular/src/dll_c_iter.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/list/double_list/double_linked_list_circular/src/dll_c_push_link.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/list/double_list/double_linked_list_link/dll_l_construct.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/list/double_list/double_linked_list_link/src/dll_l_get_content.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/list/double_list/double_linked_list_link/utils.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/list/simple_list/simple_linked_list/debug/sll_print_str.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/list/simple_list/simple_linked_list/sll_construct.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/list/simple_list/simple_linked_list/src/drop_utils.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/list/simple_list/simple_linked_list/src/sll_add.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/list/simple_list/simple_linked_list/src/sll_drop_link.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/list/simple_list/simple_linked_list_link/sll_l_construct.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/memory/ft_0_new_memory.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/memory/ft_bzero.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/memory/ft_exit_lack_memory.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/memory/ft_malloc_protect.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/memory/ft_memalloc.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/memory/ft_memccpy.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/memory/ft_memchr.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/memory/ft_memcmp.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/memory/ft_memcpy.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/memory/ft_memdel.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/memory/ft_memmove.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/memory/ft_memset.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/memory/soa.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/nb/ft_atoi.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/nb/ft_putnbr.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/nb/ft_putnbr_fd.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/nb/putnbr_str.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/printf/buffer/head_buffer.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/printf/data/manage_before_printer.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/printf/data/nb/float/head_double.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/printf/data/nb/integer/head_integer_signed.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/printf/data/nb/integer/head_interger_n.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/printf/data/nb/unsigned/head_integer_unsigned.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/printf/data/nb/unsigned/utils_unsigned_integer.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/printf/data/nb/unsigned_variation/head_unsigned_binairy.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/printf/data/nb/unsigned_variation/head_unsigned_hexa.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/printf/data/nb/unsigned_variation/head_unsigned_octal.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/printf/data/nb/unsigned_variation/head_unsigned_ptr.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/printf/data/text/char/head_char.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/printf/data/text/other/head_percent.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/printf/data/text/str/manage_str.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/printf/main_pfff.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/printf/parseur/head_parseur.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/printf/parseur/parseur_flag.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/printf/parseur/parseur_flag_utils.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/printf/parseur/parseur_utils.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/printf/printer/function_printer.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/printf/printer/head_printer.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/printf/printer/utils_printer.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/printf/utils_main.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/sort/ft_quick_sort.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/sort/quick_sort_dll.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/char/ft_free_doublechar_tab.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/char/ft_isalnum.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/char/ft_isalpha.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/char/ft_isascii.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/char/ft_isdigit.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/char/ft_isprint.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/char/ft_put_uni.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/char/ft_putchar.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/char/ft_putchar_fd.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/char/ft_tolower.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/char/ft_toupper.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/str/check_char_into_str.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/str/free_str.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/str/ft_itoa.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/str/ft_putendl.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/str/ft_putendl_fd.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/str/ft_putstr.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/str/ft_putstr_fd.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/str/ft_str_rev.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/str/ft_strcat.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/str/ft_strchr.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/str/ft_strchr_dup.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/str/ft_strchr_how_many.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/str/ft_strchr_len.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/str/ft_strclr.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/str/ft_strcmp.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/str/ft_strcpy.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/str/ft_strdel.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/str/ft_strdup.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/str/ft_strequ.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/str/ft_striter.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/str/ft_striteri.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/str/ft_strjoin.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/str/ft_strlcat.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/str/ft_strlen.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/str/ft_strmap.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/str/ft_strmapi.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/str/ft_strncat.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/str/ft_strncmp.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/str/ft_strncpy.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/str/ft_strndup.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/str/ft_strnequ.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/str/ft_strnew.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/str/ft_strnjoin.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/str/ft_strnstr.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/str/ft_strrchr.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/str/ft_strstr.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/str/ft_strsub.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/str/ft_strtrim.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/str/get_last_char_str.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/str/index_of_char.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/str/is_all_number.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/str/str_by_func.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/string/str/str_is_int.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/tab/void/create_tab_void.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/tab/void/void_tab_debug.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/libft/src/tab/void/void_tab_get_function.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/src/data/best_path.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/src/data/finder_finder_link.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/src/data/lem.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/src/data/map.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/src/data/move.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/src/data/room.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/src/data/tunnel.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/src/debug/debug_set.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/src/debug/src/debug_map.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/src/debug/src/debug_parseur.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/src/debug/src/debug_path.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/src/includes/all_includes.h">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/src/includes/function.h">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/src/includes/getter.h">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/src/includes/struct.h">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/src/includes/struct_algo.h">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/src/includes/struct_min.h">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/src/main.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/src/main_2.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/src/parseur/get_room.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/src/parseur/get_room_utils.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/src/parseur/get_tunnel.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/src/parseur/getter.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/src/solver/algo/algo.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/src/solver/algo/find_best_path.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/src/solver/algo/shorty_baby.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/src/solver/move_f.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/src/solver/move_f_main.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/src/solver/sort_path/generate_map_path.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/src/solver/split_path/clean_working_dll.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/src/solver/split_path/split_path.c">
+			<Option target="Lem-in"/>
+		</Unit>
+		<Unit filename="/Users/adpusel/Dropbox/42/projects/lem_in/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

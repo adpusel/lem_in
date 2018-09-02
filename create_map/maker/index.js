@@ -31,7 +31,7 @@ const generate_file = () => {
   })
 
   let blob = new Blob([`${parseInt($("#nb_f").val()) }\n`, ...new_tab, ...tab_link], {type: "text/plain;charset=ascci"})
-  saveAs(blob, "map")
+  saveAs(blob, $(".name_file").val())
 }
 
 /*------------------------------------*\
