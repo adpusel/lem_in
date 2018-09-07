@@ -18,9 +18,8 @@
 /*
 **    g_debug ========================================================
 */
-typedef t_db *t_debug;
-extern t_debug g_debug;
-t_debug set_debug(int is_on, int little, int err);
+extern t_db g_debug;
+int set_debug(t_db *db);
 
 /*
 **    Parseur
@@ -82,7 +81,7 @@ void	free_lem(t_lem lem);
 int		lem_getter(t_data data);
 int		get_tunnel(t_data data, t_get_utils utils);
 int		get_room(t_data data, t_get_utils utils);
-void	fill_map_with_tunnel(t_data data, t_map map);
+void	fill_map_with_tunnel(t_data *data, t_map *map);
 
 /*
 **    paseur utils

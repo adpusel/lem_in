@@ -13,82 +13,59 @@
 #include <stdio.h>
 #include "includes/function.h"
 
-void	print_map(char *tab_room, size_t size_line)
+void set_up_algo(t_lem *lem, t_data data)
 {
-	size_t	i;
-	size_t	line;
-	int		letter;
-	size_t	lim;
+	t_map *map;
+	t_cache *cache;
+	t_algo *algo;
 
-	i = 0;
-	line = 0;
-	letter = 'B';
-	lim = size_line * size_line;
-	print_name(size_line);
-	ft_printf("\nA   ");
-	while (i < lim)
-	{
-		ft_printf("%2c ", tab_room[i] ? 'X' : '.');
-		++i;
-		++line;
-		if (line == size_line && i < lim)
-		{
-			ft_printf(" \n%c   ", letter);
-			letter++;
-			line = 0;
-		}
-	}
-	ft_printf("\n");
-}
-
-void	set_up_algo(t_lem lem, t_data data)
-{
-	t_map	map;
-	t_cache	cache;
-	t_algo	algo;
-
-	(void)"  set up cache  ";
-	lem->algo = ft_0_new_memory(sizeof(t_algo_00 ));
-	algo = lem->algo;
+	// faire les allocation de memoire
+	(void) "  set up cache  ";
+	algo = &lem->algo;
 	cache = &algo->cache;
-	cache->all_path = new_dll();
-	cache->valid_path = new_dll();
+	// TODO : pas besoin de protection si je fais dans la stack
 	cache->end_room = data->end_room;
-	(void)"  set up map  ";
-	algo->map = ft_0_new_memory(sizeof(t_map_00));
-	map = algo->map;
-	map->col = data->room->length;
-	map->line = data->room->length;
-	map->size = data->room->length * data->room->length;
-	map->map = ft_0_new_memory(map->size * sizeof(char));
+
+	(void) "  set up map  ";
+	map = &algo->map;
+	map->col = data->room.length;
+	map->size = data->room.length * data->room.length;
 	fill_map_with_tunnel(data, map);
 }
 
-int		main(void)
+int main(void)
 {
-	t_lem	lem;
-	t_move	move;
-	int ret;
+	t_lem lem;
+	//	t_move move;
+	//	int ret;
 
-	g_debug = set_debug(FALSE, FALSE, FALSE);
-	lem = ft_0_new_memory(sizeof(t_lem_00));
+
+	// TODO : get les options ici  || si bad option return un usage
+	// TODO : set le debug avec les options
+	//	set_debug(&g_debug);
+	// TODO : check si le sizeof marche bien
+	ft_zero(&lem);
 	// je gere l'erreur ici c'est plus clair
-	if (read_and_parse_data(lem) == )
+	if (read_and_parse_data(lem) == FAIL)
+		ft_printf("ERROR in data given \n");
 	{
-		set_up_algo(lem, lem->data);
-		move = algo(&lem->algo->cache, lem->data, lem->algo->map);
-		if (move != NULL)
-		{
-			print_data(lem->data);
-			manage_move(move);
-			kill_move(move, move->size_tab);
-		}
-		else
-			ft_printf("NO SOLUTION\n");
+		// TODO : set directement dans algo sont setup
+		//		set_up_algo(lem, lem->data);
+		// TODO : comme ca je peux mettre directement dans unr boucle de if les retour
+		//		move = algo(&lem->algo->cache, lem->data, lem->algo->map);
+		// TODO : refaire bien ici avec le print des data aussi dans une boucle
+		//		if (move != NULL)
+		//		{
+		//			print_data(lem->data);
+		//			manage_move(move);
+		//			kill_move(move, move->size_tab);
+		//		}
+		//		else
+		//			ft_printf("NO SOLUTION\n");
 	}
-	else
-		ft_printf("NO SOLUTION\n" );
+	//	else
+	//	ft_printf("NO SOLUTION\n");
 	free_lem(lem);
-	free(g_debug);
+	//	free(g_debug);
 	return (EXIT_SUCCESS);
 }

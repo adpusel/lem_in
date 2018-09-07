@@ -1,10 +1,9 @@
 project(lem_in__lib)
 
-
 file(GLOB SOURCES_FILES_1 "*.c")
-file(GLOB SOURCES_FILES_2 "/**/*.c")
-file(GLOB SOURCES_FILES_3 "/**/**/*.c")
-file(GLOB SOURCES_FILES_4 "/**/**/**/*.c")
+file(GLOB SOURCES_FILES_2 "./**/*.c")
+file(GLOB SOURCES_FILES_3 "./**/**/*.c")
+file(GLOB SOURCES_FILES_4 "./**/**/**/*.c")
 
 add_library(lem_in__lib STATIC
         ${SOURCES_FILES_1}

@@ -12,26 +12,15 @@
 
 #include "../includes/all_includes.h"
 
-t_debug g_debug;
+t_db g_debug;
 
-t_debug	set_debug(int is_on, int little, int err)
+//pas besoin de retour comme pas d'appelle memoire, mais peut avoir beug
+// dans le get_argument, commet c'est un gnl, je fait un tab pour la premiere line
+// si elle a un - au debut
+int	set_debug(t_db *db)
 {
-	t_debug db;
-
-	db = ft_0_new_memory(sizeof(t_db));
-	db->little = little;
-	db->print_err = err;
+	ft_memset(db, 0, sizeof(t_db));
 	(void)"  set les demandes de g_debug  ";
-	if (is_on == TRUE)
-	{
-		db->map_tunnel = TRUE;
-		db->print_split = TRUE;
-		db->map_path = TRUE;
-		db->final_path = TRUE;
-	}
-	(void)"  set le fichier a check  ";
-//	db->fd_file = open_file("/Users/adpusel/Dropbox/42/projects/lem_in/vog/test/dur_test/test_1");
 	db->fd_file = 0;
-	g_debug = db;
-	return (db);
+	return (TRUE);
 }

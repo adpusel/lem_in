@@ -29,6 +29,7 @@ typedef struct		s_d
 	int				final_path;
 	int				fd_file;
 	int				little;
+	char			option_finded[10];
 }					t_db;
 
 /*
@@ -38,53 +39,45 @@ typedef struct		s_lem
 {
 	t_data			data;
 	t_algo			algo;
-}					t_lem_00;
-
-typedef t_lem_00	*t_lem;
+}					t_lem;
 
 /*
 **    struct_path
 */
-typedef struct		s_b_path_00
+typedef struct		s_b_path
 {
 	char			*tab;
 	int				nb;
 	int				line;
-}					t_b_path_00;
-typedef t_b_path_00	*t_b_path;
+}					t_b_path;
 
 /*
 **    best_path ========================================================
 */
-typedef struct		s_best_path_00
+typedef struct		s_best_path
 {
-	t_b_path_00		cache;
-	t_b_path_00		data;
+	t_b_path		cache;
+	t_b_path		data;
 
-}					t_best_path_00;
-
-typedef t_best_path_00 *t_best;
+}					t_best_path;
 
 /*
 **    real_path ========================================================
 */
-typedef struct		s_real_path_00
+typedef struct		s_real_path
 {
 	int				size;
 	int				free;
 	t_dll			list_path;
-}					t_real_path_00;
+}					t_real_path;
 
-typedef t_real_path_00 *t_real_path;
-
-typedef struct		s_move_00
+typedef struct		s_move
 {
-	t_data			data;
+	t_data			*data;
 	int				nb_fourmis;
 	size_t			size_tab;
 	t_real_path		*tab;
 	int				end_room;
-}					t_move_00;
-typedef t_move_00	*t_move;
+}					t_move;
 
 #endif

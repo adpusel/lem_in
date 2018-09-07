@@ -6,7 +6,6 @@ set(PROJECT_NAME Lem-in)
 #*------------------------------------*\
 #    --  NAME PROJET  --
 #*------------------------------------*/
-
 project(${PROJECT_NAME} C)
 
 #*------------------------------------*\
@@ -28,18 +27,15 @@ add_executable(
 #*------------------------------------*/
 set(REPO "file/")
 
-
 #*------------------------------------*\
 #    -- LIB FT FILE --
 #*------------------------------------*/
-#include_directories(libft)
 add_subdirectory(libft)
 
 #*------------------------------------*\
 #    --  PROJET FILE  --
 #*------------------------------------*/
 add_subdirectory(file)
-
 
 #*------------------------------------*\
 #    --  TEST FILE  --
@@ -51,10 +47,8 @@ add_subdirectory(file)
 #*------------------------------------*\
 #    --  LINKING --
 #*------------------------------------*/
-target_link_libraries(lem_in__run lem_in__lib )
+target_link_libraries(lem_in__run lem_in__lib)
 target_link_libraries(lem_in__run libft)
-
-
 
 
 #*------------------------------------*\

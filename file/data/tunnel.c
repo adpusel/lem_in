@@ -51,10 +51,10 @@ void	get_max_path(t_data data, t_map map_ptr)
 	data->lim = start > end ? end : start;
 }
 
-void	fill_map_with_tunnel(t_data data, t_map map)
+void	fill_map_with_tunnel(t_data *data, t_map *map)
 {
-	t_dll_l		tunnel_link;
-	t_tunnel	tunnel;
+	t_dll_l		*tunnel_link;
+	t_tunnel	*tunnel;
 	size_t		x;
 	size_t		y;
 

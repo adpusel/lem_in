@@ -34,7 +34,7 @@ int lem_getter(t_data data)
 	get.data = data;
 	(void) "  je set utils  ";
 	get.utils.fd = g_debug->fd_file;
-	(void)" le reste n'est pas lancer en cas d'erreur   ";
+	(void) " le reste n'est pas lancer en cas d'erreur   ";
 	ret = TRUE
 		  && get_nb_foumis(&get) == FALSE
 		  && get_room(get.data, &get.utils)
@@ -50,7 +50,7 @@ void check_data(t_data data)
 	ft_printf("----> les rooms \n");
 	ft_printf("----\n");
 	ft_printf("----> les tunnels \n");
-	dll_func(data->tunnel, print_tunnel_dll);
+	dll_func_lim(data->tunnel, print_tunnel_dll, NULL, ALL_LIST);
 	ft_printf("---- \n");
 }
 
