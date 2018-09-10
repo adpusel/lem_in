@@ -37,14 +37,14 @@ typedef struct		s_get_utils
 	char			*line;
 	int				fd;
 	int				type_salle;
-}					t_get_util;
+}					t_get_utils;
 
 /*
 **    getter
 */
 typedef struct		s_getter
 {
-	t_data			data;
+	t_data			*data;
 	t_get_util		utils;
 }					t_getter;
 

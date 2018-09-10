@@ -24,7 +24,7 @@ int set_debug(t_db *db);
 /*
 **    Parseur
 */
-int		read_and_parse_data(t_lem lem);
+int		read_and_parse_data(t_data *data);
 
 /*
 **    split
@@ -78,9 +78,9 @@ void	destroy_map(t_map map);
 
 void	free_lem(t_lem lem);
 
-int		lem_getter(t_data data);
+int lem_getter(t_getter *get);
 int		get_tunnel(t_data data, t_get_utils utils);
-int		get_room(t_data data, t_get_utils utils);
+int		get_room(t_data *data, t_get_utils utils);
 void	fill_map_with_tunnel(t_data *data, t_map *map);
 
 /*

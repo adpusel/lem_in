@@ -12,9 +12,9 @@
 
 #include "../includes/all_includes.h"
 
-int		manage_end_start(int i, t_data data, t_get_utils utils)
+int manage_end_start(int i, t_data data, t_get_utils utils)
 {
-	static int	res;
+	static int res;
 
 	res = 0;
 	if (utils->type_salle == L_START)
@@ -31,17 +31,17 @@ int		manage_end_start(int i, t_data data, t_get_utils utils)
 	return (res);
 }
 
-t_dll_l	add_room_link(t_data data, t_get_utils utils)
+t_dll_l add_room_link(t_data *data, t_get_utils *utils)
 {
-	static t_dll_l		room_link;
-	char				**room_splited;
-	static int			i = 0;
+	static t_dll_l room_link;
+	char **room_splited;
+	static int i = 0;
 
 	room_splited = ft_strsplit(utils->line, ' ');
 	room_link = new_checked_room_link(*room_splited, *(room_splited + 1),
-									*(room_splited + 2), data);
+									  *(room_splited + 2), data);
 	if (room_link)
-		((t_room)room_link->content)->type = manage_end_start(i, data, utils);
+		((t_room) room_link->content)->type = manage_end_start(i, data, utils);
 	dll_add_at_index(room_link, data->room, data->room->length);
 	ft_free_split(&room_splited);
 	i++;
@@ -58,7 +58,7 @@ t_dll_l	add_room_link(t_data data, t_get_utils utils)
 **	et affiche un message d'erreur en  consequence
 */
 
-int		check_err_room(t_data data)
+int check_err_room(t_data data)
 {
 	if (data->start_room < 0)
 		return (print_err_retrun_int("pas de start", g_debug->print_err));
@@ -66,7 +66,7 @@ int		check_err_room(t_data data)
 		return (print_err_retrun_int("pas de end", g_debug->print_err));
 	if (data->start_room == data->end_room)
 		return (print_err_retrun_int("start et end sont les memes",
-					g_debug->print_err));
+									 g_debug->print_err));
 	else
 		return (TRUE);
 }
@@ -76,26 +76,27 @@ int		check_err_room(t_data data)
 **si pas de space je stop
 */
 
-int		get_room(t_data data, t_get_utils utils)
+int get_room(t_data *data, t_get_utils *utils)
 {
 	while (ask_gnl(utils->fd, &utils->line, NULL))
 	{
 		if (utils->line[0] == '#')
 			utils->type_salle = manage_comment(utils->line);
-		else if (ft_strchr_how_many(utils->line, ' ') == 2)
+		else if (ft_how_many_char(' ', utils->line) == 2)
 		{
-			if (ft_strchr_how_many(utils->line, '-') > 0 ||
+			if (ft_how_many_char('-', utils->line) > 0 ||
 				utils->line[0] == 'L')
 			{
-				print_err_retrun_int("- dans le nom de la room",
-						g_debug->print_err);
-				break ;
+				// TODO : ici print des err de normes
+				// print_err_retrun_int("- dans le nom de la room",
+				//									 g_debug->print_err);
+				break;
 			}
 			if (add_room_link(data, utils) == FALSE)
-				break ;
+				break;
 		}
 		else
-			break ;
+			break;
 	}
 	return (check_err_room(data));
 }
