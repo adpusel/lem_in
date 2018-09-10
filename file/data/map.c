@@ -12,8 +12,7 @@
 
 #include "../includes/all_includes.h"
 
-void	destroy_map(t_map map)
+void	destroy_map(t_map *map)
 {
 	free(map->map);
-	free(map);
 }

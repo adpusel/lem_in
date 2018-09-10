@@ -12,7 +12,7 @@
 
 #include "../../includes/all_includes.h"
 
-void		*destroy_finder(t_finde finder)
+void		*destroy_finder(t_finder finder)
 {
 	free(finder->taken_room);
 	destroy_dll_func(&finder->working_path, dll_l_notfree_content);
@@ -21,7 +21,7 @@ void		*destroy_finder(t_finde finder)
 	return (NULL);
 }
 
-t_move		is_solution(t_finde finder, t_data data)
+t_move		is_solution(t_finder finder, t_data data)
 {
 	t_move		move;
 	t_map		path_map;
@@ -41,7 +41,7 @@ t_move		is_solution(t_finde finder, t_data data)
 
 t_move		algo(t_cache cache, t_data data, t_map map)
 {
-	t_finde			finder;
+	t_finder			finder;
 	t_move			move;
 	t_dll_l			path_l;
 

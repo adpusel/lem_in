@@ -15,7 +15,7 @@
 
 # include "ft_library_header.h"
 # include "getter.h"
-# include "struct_min.h"
+# include "struct_parser.h"
 # include "struct_algo.h"
 
 typedef struct		s_d
@@ -59,7 +59,7 @@ typedef struct		s_best_path
 	t_b_path		cache;
 	t_b_path		data;
 
-}					t_best_path;
+}					t_best;
 
 /*
 **    real_path ========================================================

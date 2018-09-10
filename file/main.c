@@ -10,10 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "includes/function.h"
+#include "all_includes.h"
 
-void set_up_algo(t_lem *lem, t_data data)
+void set_up_algo(t_lem *lem, t_data *data)
 {
 	t_map *map;
 	t_cache *cache;
@@ -28,8 +27,8 @@ void set_up_algo(t_lem *lem, t_data data)
 
 	(void) "  set up map  ";
 	map = &algo->map;
-	map->col = data->room.length;
-	map->size = data->room.length * data->room.length;
+	map->col = data->room->length;
+	map->size = data->room->length * data->room->length;
 	fill_map_with_tunnel(data, map);
 }
 
@@ -46,7 +45,7 @@ int main(void)
 	// TODO : check si le sizeof marche bien
 	ft_zero(&lem);
 	// je gere l'erreur ici c'est plus clair
-	if (read_and_parse_data(lem) == FAIL)
+	if (read_and_parse_data(&lem.data) == FAIL)
 		ft_printf("ERROR in data given \n");
 	{
 		// TODO : set directement dans algo sont setup
@@ -65,7 +64,7 @@ int main(void)
 	}
 	//	else
 	//	ft_printf("NO SOLUTION\n");
-	free_lem(lem);
+	free_lem(&lem);
 	//	free(g_debug);
 	return (EXIT_SUCCESS);
 }

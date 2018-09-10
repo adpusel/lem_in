@@ -24,7 +24,7 @@
 # include "struct.h"
 # include "getter.h"
 # include "function.h"
-# include "struct_min.h"
+# include "struct_parser.h"
 
 /*
 **    g_debug

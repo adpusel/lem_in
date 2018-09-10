@@ -12,26 +12,17 @@
 
 #include "../includes/all_includes.h"
 
-void	kill_algo(t_algo algo)
+void kill_algo(t_algo *algo)
 {
-	destroy_map(algo->map);
-	destroy_dll(&algo->cache.all_path);
-	// TODO : functrion qui destroy juste les function de dll // clear dll
-	destroy_dll_func(&algo->cache.valid_path, dll_l_notfree_content);
+	destroy_map(&algo->map);
+	destroy_dll_stack(&algo->cache.all_path, NULL);
+	destroy_dll_stack(&algo->cache.valid_path, NULL);
 	free(algo);
 }
 
-void	free_lem(t_lem lem)
+void free_lem(t_lem *lem)
 {
-	if (lem->data != NULL)
-	{
-		destroy_dll_func(&lem->data->room, &destroy_room);
-		destroy_dll_func(&lem->data->tunnel, &destroy_tunnel);
-		free(lem->data);
-	}
-	if (lem->algo != NULL)
-	{
-		kill_algo(lem->algo);
-	}
-	free(lem);
+	destroy_dll_stack(lem->data.room, &destroy_room);
+	destroy_dll_stack(lem->data.tunnel, &destroy_tunnel);
+	kill_algo(&lem->algo);
 }

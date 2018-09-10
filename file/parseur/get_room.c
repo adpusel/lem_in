@@ -12,7 +12,7 @@
 
 #include "../includes/all_includes.h"
 
-int manage_end_start(int i, t_data data, t_get_utils utils)
+int manage_end_start(int i, t_data *data, t_get_utils *utils)
 {
 	static int res;
 
@@ -31,17 +31,26 @@ int manage_end_start(int i, t_data data, t_get_utils utils)
 	return (res);
 }
 
+// todo verifier le x et le y avant de les ajouter
+//	if (str_is_int(x, &room.x) == FALSE || ft_atoi(x) < 0)
+//		return (print_err_retrun_null("x is fuck", g_debug->print_err));
+//	if (str_is_int(y, &room.y) == FALSE || ft_atoi(x) < 0)
+//		return (print_err_retrun_null("y is fuck", g_debug->print_err));
+//				 *(room_splited + 1),
+//				 *(room_splited + 2),  les room
 t_dll_l add_room_link(t_data *data, t_get_utils *utils)
 {
-	static t_dll_l room_link;
+	static t_dll_l *room_link;
 	char **room_splited;
 	static int i = 0;
+	int size_split;
+	int ret;
 
-	room_splited = ft_strsplit(utils->line, ' ');
-	room_link = new_checked_room_link(*room_splited, *(room_splited + 1),
-									  *(room_splited + 2), data);
+	ret = ft_str_split(utils->line, " ", &room_splited, &size_split);
+	 = new_checked_room_link(*room_splited, data, &room_link);
 	if (room_link)
-		((t_room) room_link->content)->type = manage_end_start(i, data, utils);
+		((t_room *) room_link->content)->type = manage_end_start(i, data,
+																 utils);
 	dll_add_at_index(room_link, data->room, data->room->length);
 	ft_free_split(&room_splited);
 	i++;

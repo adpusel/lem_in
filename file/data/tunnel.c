@@ -12,17 +12,7 @@
 
 #include "../includes/all_includes.h"
 
-int		same_name(t_dll_l current_link, void *ptr)
-{
-	t_room	room;
-
-	room = current_link->content;
-	if (ft_strcmp(room->name, ptr) == 0)
-		return (TRUE);
-	return (FALSE);
-}
-
-void	get_max_path(t_data data, t_map map_ptr)
+void	get_max_path(t_data *data, t_map *map_ptr)
 {
 	char	*map;
 	int		end;
@@ -49,6 +39,18 @@ void	get_max_path(t_data data, t_map map_ptr)
 		++i;
 	}
 	data->lim = start > end ? end : start;
+}
+
+
+// je veux connaitre l'index de ma room
+int		same_name(t_dll_l *current_link, void *ptr)
+{
+	t_room	*room;
+
+	room = current_link->content;
+	if (ft_str_eq(room->name, ptr) == TRUE)
+		return (TRUE);
+	return (FALSE);
 }
 
 void	fill_map_with_tunnel(t_data *data, t_map *map)

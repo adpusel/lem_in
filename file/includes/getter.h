@@ -19,8 +19,8 @@
 */
 typedef struct		s_data
 {
-	t_dll			room;
-	t_dll			tunnel;
+	t_dll			*room;
+	t_dll			*tunnel;
 	int				start_room;
 	int				end_room;
 	int				x;
@@ -45,7 +45,7 @@ typedef struct		s_get_utils
 typedef struct		s_getter
 {
 	t_data			*data;
-	t_get_util		utils;
+	t_get_utils		utils;
 }					t_getter;
 
 #endif

@@ -39,7 +39,7 @@ int		is_close_path(t_dll_l cur_link, void *name_end_room)
 **	a finder->valid_path
 */
 
-void	drop_finish_path_working(t_finde finder)
+void	drop_finish_path_working(t_finder finder)
 {
 	t_dll_l		link_dropped;
 
@@ -63,7 +63,7 @@ void	drop_finish_path_working(t_finde finder)
 **	assigne une nouvelle list a new_path
 */
 
-void	clean_woking(t_finde finder)
+void	clean_woking(t_finder finder)
 {
 	destroy_dll_func(&finder->working_path, dll_l_notfree_content);
 	finder->working_path = finder->new_path;

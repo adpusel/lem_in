@@ -23,8 +23,8 @@ typedef struct		s_finder
 {
 	t_dll			working_path;
 	t_dll			new_path;
-	t_dll			all_path;
-	t_dll			valid_path;
+	t_dll			*all_path;
+	t_dll			*valid_path;
 	int				end_room;
 	int				start_room;
 	char			*taken_room;

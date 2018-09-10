@@ -12,18 +12,21 @@
 
 #include "../includes/all_includes.h"
 
-t_finde	new_finder(t_data data, int new_room_start,
-		t_map map, t_cache cache)
+t_finder *new_finder(t_data *data, int new_room_start,
+ t_map *map, t_cache *cache)
 {
-	t_finde	finder;
+	t_finder *finder;
+	char *char_ptr;
+	int ret;
 
-	finder = ft_0_new_memory(sizeof(t_finder_00));
-	finder->new_path = new_dll();
-	finder->working_path = new_dll();
-	finder->valid_path = cache->valid_path;
-	finder->all_path = cache->all_path;
+	ret = ft_memory((void **) &finder, sizeof(t_finder)) == OK &&
+		  ft_memory((void **) &char_ptr, (sizeof(char) * map->line)) == OK;
+	if (ret != OK)
+		return (NULL);
+	finder->valid_path = &cache->valid_path;
+	finder->all_path = &cache->all_path;
 	finder->end_room = data->end_room;
 	finder->start_room = new_room_start;
-	finder->taken_room = ft_0_new_memory(sizeof(char) * map->line);
+	finder->taken_room = char_ptr;
 	return (finder);
 }

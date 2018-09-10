@@ -62,7 +62,7 @@ int			is_already_taken(t_path cur_path, int name_current_room)
 **			je l'ajoute au new_path
 */
 
-void		split_path(t_map map, t_finde finder, t_path cur_path)
+void		split_path(t_map map, t_finder finder, t_path cur_path)
 {
 	char	*map_line;
 	t_dll_l	path_link;
@@ -84,7 +84,7 @@ void		split_path(t_map map, t_finde finder, t_path cur_path)
 	}
 }
 
-void		deb_split(t_finde finder)
+void		deb_split(t_finder finder)
 {
 	if (g_debug->print_split)
 	{
@@ -114,7 +114,7 @@ void		deb_split(t_finde finder)
 **	nettoie et genere un nouveau cache avec --  clean_woking --
 */
 
-size_t		split_all_path(t_finde finder, t_map map)
+size_t		split_all_path(t_finder finder, t_map map)
 {
 	t_dll_l		cur_working_link;
 
