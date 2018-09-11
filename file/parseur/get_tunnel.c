@@ -68,9 +68,17 @@ int check_valid_room_name(char *line, t_dll *room_list, t_room **room_1,
 	return (*room_1 && *room_2 ? OK : FAIL);
 }
 
-int	()
+// s
+int check_exist_tunnel(t_dll *tunnel_list, t_room *room_1, t_room *room_2)
 {
+	t_tunnel tunnel;
 
+	tunnel.room_1 = room_1;
+	tunnel.room_2 = room_2;
+
+	return (dll_func(tunnel_list,
+					 check_same_tunnel_link, &tunnel, ALL_LIST)
+			!= NULL ? OK : FAIL);
 }
 
 int build_tunnel_link(t_data *data, t_get_utils *utils)
@@ -78,25 +86,19 @@ int build_tunnel_link(t_data *data, t_get_utils *utils)
 	t_dll_l *tunnel_link;
 	t_room *room_1;
 	t_room *room_2;
-	t_tunnel tunnel;
 	int ret;
 
-	// plus simple de check si je link n'existe pas deja avant de le creer ?
-	// je check tout et en dernier j'initialise le link
-	if (check_valid_room_name(utils->line, data->room, &room_1, &room_2) != OK)
-		// je set les room, je test tunnel, je fais le link, ok
-		  && new_tunnel_link(room_1, room_2, &tunnel_link) == OK
-
-	if (tunnel_link && dll_find(data->tunnel,
-								check_same_tunnel_link, tunnel_link->content) !=
-								NULL)
-		destroy_dll_l(&tunnel_link);
-
-	tunnel_link ? dll_add(tunnel_link, data->tunnel) : (void) 1;
-	return (tunnel_link ? TRUE : FALSE);
+	tunnel_link = NULL;
+	ret =
+	 check_valid_room_name(utils->line, data->room, &room_1, &room_2) != OK
+	 && check_exist_tunnel(data->tunnel, room_1, room_2) == OK
+	 && new_tunnel_link(room_1, room_2, &tunnel_link) == OK;
+	if (ret == OK)
+		dll_add_at_index(tunnel_link, data->tunnel, ALL_LIST);
+	return (ret);
 }
 
-int get_tunnel(t_data data, t_get_utils utils)
+int get_tunnel(t_data *data, t_get_utils *utils)
 {
 	int last_line;
 
