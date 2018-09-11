@@ -31,30 +31,30 @@ int manage_end_start(int i, t_data *data, t_get_utils *utils)
 	return (res);
 }
 
-// todo verifier le x et le y avant de les ajouter
+// todo verifier le x et le y avant de les ajouter a room
 //	if (str_is_int(x, &room.x) == FALSE || ft_atoi(x) < 0)
 //		return (print_err_retrun_null("x is fuck", g_debug->print_err));
 //	if (str_is_int(y, &room.y) == FALSE || ft_atoi(x) < 0)
 //		return (print_err_retrun_null("y is fuck", g_debug->print_err));
 //				 *(room_splited + 1),
 //				 *(room_splited + 2),  les room
-t_dll_l add_room_link(t_data *data, t_get_utils *utils)
+int add_room_link(t_data *data, t_get_utils *utils, t_dll_l *room_link)
 {
-	static t_dll_l *room_link;
 	char **room_splited;
 	static int i = 0;
 	int size_split;
 	int ret;
 
-	ret = ft_str_split(utils->line, " ", &room_splited, &size_split);
-	 = new_checked_room_link(*room_splited, data, &room_link);
+	ret = ft_str_split(utils->line, " ", &room_splited, &size_split) == OK &&
+		  new_checked_room_link(*room_splited, data, &room_link) == OK;
+	// todo set err parsing et err memoire
 	if (room_link)
 		((t_room *) room_link->content)->type = manage_end_start(i, data,
 																 utils);
 	dll_add_at_index(room_link, data->room, data->room->length);
 	ft_free_split(&room_splited);
 	i++;
-	return (room_link);
+	return (ret);
 }
 
 /*
@@ -66,17 +66,19 @@ t_dll_l add_room_link(t_data *data, t_get_utils *utils)
 **	verifie une fois toutes les rooms lue,
 **	et affiche un message d'erreur en  consequence
 */
-
-int check_err_room(t_data data)
+// todo repenser les message d'err pour le petit lemin
+int check_err_room(t_data *data)
 {
-	if (data->start_room < 0)
-		return (print_err_retrun_int("pas de start", g_debug->print_err));
-	if (data->end_room < 0)
-		return (print_err_retrun_int("pas de end", g_debug->print_err));
-	if (data->start_room == data->end_room)
-		return (print_err_retrun_int("start et end sont les memes",
-									 g_debug->print_err));
-	else
+	(void)data;
+
+	//	if (data->start_room < 0)
+//		return (print_err_retrun_int("pas de start", g_debug->print_err));
+//	if (data->end_room < 0)
+//		return (print_err_retrun_int("pas de end", g_debug->print_err));
+//	if (data->start_room == data->end_room)
+//		return (print_err_retrun_int("start et end sont les memes",
+//									 g_debug->print_err));
+//	else
 		return (TRUE);
 }
 
@@ -87,6 +89,9 @@ int check_err_room(t_data data)
 
 int get_room(t_data *data, t_get_utils *utils)
 {
+	static t_dll_l link;
+//	int ret;
+
 	while (ask_gnl(utils->fd, &utils->line, NULL))
 	{
 		if (utils->line[0] == '#')
@@ -101,7 +106,7 @@ int get_room(t_data *data, t_get_utils *utils)
 				//									 g_debug->print_err);
 				break;
 			}
-			if (add_room_link(data, utils) == FALSE)
+			if (add_room_link(data, utils, &link) == FALSE)
 				break;
 		}
 		else

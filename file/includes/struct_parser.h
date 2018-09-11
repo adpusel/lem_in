@@ -19,6 +19,8 @@ typedef struct		s_room
 	int				nb;
 	int				type;
 	char			*name;
+	int				x;
+	int				y;
 }					t_room;
 
 typedef struct		s_tunnel

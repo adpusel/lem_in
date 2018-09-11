@@ -93,10 +93,10 @@ int		check_err_room(t_data *data);
 /*
 **    contruct ========================================================
 */
-t_dll_l	*new_tunnel_link(t_room *room_1, t_room *room_2);
+int	new_tunnel_link(t_room *room_1, t_room *room_2, t_dll_l **tunnel_link);
 int new_checked_room_link(char *name, t_data *data, t_dll_l **ptr_link);
 t_finder	*new_finder(t_data *data, int new_room_start, t_map *map, t_cache *cache);
-
+void add_x_y_surfinthenorme(int x, int y, t_room *room);
 /*
 **    destroy ========================================================
 */

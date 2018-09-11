@@ -32,6 +32,8 @@ void set_up_algo(t_lem *lem, t_data *data)
 	fill_map_with_tunnel(data, map);
 }
 
+int g_malloc_lack;
+
 int main(void)
 {
 	t_lem lem;

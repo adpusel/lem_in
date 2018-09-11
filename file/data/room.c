@@ -42,6 +42,12 @@ int new_checked_room_link(char *name, t_data *data, t_dll_l **ptr_link)
 	return (ret);
 }
 
+void add_x_y_surfinthenorme(int x, int y, t_room *room)
+{
+	room->x = x;
+	room->y = y;
+}
+
 void destroy_room(void *room_ptr)
 {
 	t_room *room;

@@ -64,8 +64,8 @@ void	fill_map_with_tunnel(t_data *data, t_map *map)
 	while (tunnel_link)
 	{
 		tunnel = tunnel_link->content;
-		dll_index_link_func(data->room, same_name, tunnel->room_1->name, &x);
-		dll_index_link_func(data->room, same_name, tunnel->room_2->name, &y);
+		x = dll_func_index(data->room, same_name, tunnel->room_1->name, ALL_LIST);
+		y = dll_func_index(data->room, same_name, tunnel->room_2->name, ALL_LIST);
 		map->map[(y * map->line) + x] = 1;
 		map->map[(x * map->line) + y] = 1;
 		tunnel_link = tunnel_link->next;
@@ -79,22 +79,18 @@ void	fill_map_with_tunnel(t_data *data, t_map *map)
 //	}
 }
 
-t_dll_l	new_tunnel_link(t_room room_1, t_room room_2)
+int	new_tunnel_link(t_room *room_1, t_room *room_2, t_dll_l **tunnel_link)
 {
-	t_tunnel_00		tunnel;
-	t_dll_l			tunnel_link;
+	t_tunnel		tunnel; //todo mettre en static
+	int ret;
 
-	tunnel_link = NULL;
 	tunnel.room_1 = room_1;
 	tunnel.room_2 = room_2;
-	tunnel_link = new_dll_l(&tunnel, sizeof(t_tunnel_00));
-	return (tunnel_link);
+	ret = new_dll_l(&tunnel, sizeof(t_tunnel), tunnel_link);
+	return (ret);
 }
 
 void	destroy_tunnel(void *ptr_tunnel)
 {
-	static t_tunnel	tunnel;
-
-	tunnel = ptr_tunnel;
-	free(tunnel);
+	free(ptr_tunnel);
 }
