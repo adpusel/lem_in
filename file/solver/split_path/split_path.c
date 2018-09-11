@@ -36,7 +36,7 @@ return (NULL);
 **	Parcours tout les path precedent et compare a cur_room
 */
 
-int			is_already_taken(t_path cur_path, int name_current_room)
+int			is_already_taken(t_path *cur_path, int name_current_room)
 {
 	while (cur_path)
 	{
@@ -64,10 +64,10 @@ int			is_already_taken(t_path cur_path, int name_current_room)
 **			je l'ajoute au new_path
 */
 
-void		split_path(t_map map, t_finder finder, t_path cur_path)
+void		split_path(t_map *map, t_finder *finder, t_path *cur_path)
 {
 	char	*map_line;
-	t_dll_l	path_link;
+	t_dll_l	*path_link;
 	size_t	col;
 
 	map_line = map->map + (cur_path->room * map->col);
@@ -79,26 +79,27 @@ void		split_path(t_map map, t_finder finder, t_path cur_path)
 		{
 			path_link = new_path_link(col, cur_path,
 					finder->all_path, cur_path->size + 1);
-			dll_add_at_index(path_link, finder->new_path,
-					finder->new_path->length);
+			dll_add_at_index(path_link, &finder->new_path,
+					finder->new_path.length);
 		}
 		++col;
 	}
 }
 
-void		deb_split(t_finder finder)
+void		deb_split(t_finder *finder)
 {
-	if (g_debug->print_split)
-	{
-		ft_printf("\n\n----> working path -- %lu\n",
-			finder->working_path->length);
-		dll_func(finder->working_path, print_path_dll);
-		ft_printf("---- \n");
-		ft_printf("----> valid path -- %lu \n", finder->valid_path->length);
-		dll_func(finder->valid_path, print_path_dll);
-		ft_printf("-------------------------------------------------------\n"
-			"------------------------------------------------------------- \n");
-	}
+//	if (g_debug->print_split)
+//	{
+//		ft_printf("\n\n----> working path -- %lu\n",
+//			finder->working_path->length);
+//		dll_func(finder->working_path, print_path_dll);
+//		ft_printf("---- \n");
+//		ft_printf("----> valid path -- %lu \n", finder->valid_path->length);
+//		dll_func(finder->valid_path, print_path_dll);
+//		ft_printf("-------------------------------------------------------\n"
+//			"------------------------------------------------------------- \n");
+//	}
+(void)finder;
 }
 
 /*
@@ -116,14 +117,14 @@ void		deb_split(t_finder finder)
 **	nettoie et genere un nouveau cache avec --  clean_woking --
 */
 
-size_t		split_all_path(t_finder finder, t_map map)
+size_t		split_all_path(t_finder *finder, t_map *map)
 {
-	t_dll_l		cur_working_link;
+	t_dll_l		*cur_working_link;
 
-	while (finder->working_path->length < 400000
-	&& finder->working_path->length)
+	while (finder->working_path.length < 400000
+	&& finder->working_path.length)
 	{
-		cur_working_link = finder->working_path->top;
+		cur_working_link = finder->working_path.top;
 		while (cur_working_link)
 		{
 			split_path(map, finder, cur_working_link->content);

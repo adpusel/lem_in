@@ -44,6 +44,7 @@ void	drop_finish_path_working(t_finder *finder)
 	t_dll_l		*link_dropped;
 
 	(void)link_dropped;
+	(void)finder;
 	//todo faire correctement le find and drop ici
 	//	while (dll_find_and_drop(finder->working_path, is_close_path,
 //				&finder->end_room, &link_dropped))

@@ -31,7 +31,7 @@ int lem_getter(t_getter *get)
 {
 	int ret;
 
-	get->utils.fd = g_debug.fd_file;
+//	get->utils.fd = g_debug.fd_file;
 	(void) " le reste n'est pas lancer en cas d'erreur   ";
 	ret = get_nb_foumis(get) == OK
 		  && get_room(get->data, &get->utils) == OK
