@@ -68,31 +68,28 @@ int check_valid_room_name(char *line, t_dll *room_list, t_room **room_1,
 	return (*room_1 && *room_2 ? OK : FAIL);
 }
 
+int	()
+{
+
+}
+
 int build_tunnel_link(t_data *data, t_get_utils *utils)
 {
 	t_dll_l *tunnel_link;
 	t_room *room_1;
 	t_room *room_2;
+	t_tunnel tunnel;
 	int ret;
 
-	// err dans les param de la room || si err de memoir je ne pourrais pas le sovoir sauf si j'ai ma global pour gerer les err
-	// des que err malloc je set dans err et je retourn FALSE
-	if (check_valid_room_name(utils->line, data->room, &room_1, &room_2))
-		return (FAIL);
-	if (ret == OK)
-	{
-		ret = new_tunnel_link(room_1, room_2, &tunnel_link);
-		if (ret == OK)
-		{
-			// je dois check les malloc
-		}
-	}
-	// err malloc
+	// plus simple de check si je link n'existe pas deja avant de le creer ?
+	// je check tout et en dernier j'initialise le link
+	if (check_valid_room_name(utils->line, data->room, &room_1, &room_2) != OK)
+		// je set les room, je test tunnel, je fais le link, ok
+		  && new_tunnel_link(room_1, room_2, &tunnel_link) == OK
 
-	// je check si le tunnel est ok
 	if (tunnel_link && dll_find(data->tunnel,
 								check_same_tunnel_link, tunnel_link->content) !=
-					   NULL)
+								NULL)
 		destroy_dll_l(&tunnel_link);
 
 	tunnel_link ? dll_add(tunnel_link, data->tunnel) : (void) 1;
