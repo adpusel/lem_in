@@ -76,7 +76,7 @@ typedef struct		s_move
 	t_data			*data;
 	int				nb_fourmis;
 	size_t			size_tab;
-	t_real_path		*tab;
+	t_real_path		**tab;
 	int				end_room;
 }					t_move;
 

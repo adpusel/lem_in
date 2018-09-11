@@ -14,7 +14,7 @@
 
 void	print_tunnel_dll(void *room_link)
 {
-	t_tunnel tunnel;
+	t_tunnel *tunnel;
 
 	tunnel = room_link;
 	ft_printf("%s", tunnel->room_1->name);

@@ -14,13 +14,13 @@
 
 void	print_path_link(void *link)
 {
-	t_path path;
+	t_path *path;
 
 	path = link;
 	ft_printf("%d-", path->room + 1);
 }
 
-void	print_path(t_path path)
+void	print_path(t_path *path)
 {
 	while (path)
 	{

@@ -53,7 +53,7 @@ void kill_move(t_move *move, size_t lim)
 	i = 0;
 	while (i < lim)
 	{
-		real = &move->tab[i];
+		real = move->tab[i];
 		destroy_dll_stack(&real->list_path, NULL);
 		free(real);
 		++i;

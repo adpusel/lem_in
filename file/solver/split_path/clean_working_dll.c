@@ -21,9 +21,9 @@
 **	**** MAKING
 */
 
-int		is_close_path(t_dll_l cur_link, void *name_end_room)
+int		is_close_path(t_dll_l *cur_link, void *name_end_room)
 {
-	if (((t_path)cur_link->content)->room
+	if (((t_path*)cur_link->content)->room
 		==
 		*(int *)name_end_room)
 		return (TRUE);
@@ -39,15 +39,17 @@ int		is_close_path(t_dll_l cur_link, void *name_end_room)
 **	a finder->valid_path
 */
 
-void	drop_finish_path_working(t_finder finder)
+void	drop_finish_path_working(t_finder *finder)
 {
-	t_dll_l		link_dropped;
+	t_dll_l		*link_dropped;
 
-	while (dll_find_and_drop(finder->working_path, is_close_path,
-				&finder->end_room, &link_dropped))
-	{
-		dll_add(link_dropped, finder->valid_path);
-	}
+	(void)link_dropped;
+	//todo faire correctement le find and drop ici
+	//	while (dll_find_and_drop(finder->working_path, is_close_path,
+//				&finder->end_room, &link_dropped))
+//	{
+//		dll_add(link_dropped, finder->valid_path);
+//	}
 }
 
 /*
@@ -63,10 +65,11 @@ void	drop_finish_path_working(t_finder finder)
 **	assigne une nouvelle list a new_path
 */
 
-void	clean_woking(t_finder finder)
+void	clean_woking(t_finder *finder)
 {
-	destroy_dll_func(&finder->working_path, dll_l_notfree_content);
+	destroy_dll_stack(&finder->working_path, NULL);
 	finder->working_path = finder->new_path;
 	drop_finish_path_working(finder);
-	finder->new_path = new_dll();
+	// todo malloc pas proteger
+	//	finder->new_path = new_dll();
 }

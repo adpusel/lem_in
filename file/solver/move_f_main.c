@@ -12,7 +12,7 @@
 
 #include "../includes/all_includes.h"
 
-void		manage_move(t_move move)
+void		manage_move(t_move *move)
 {
 	while (put_f_all_start(move))
 	{

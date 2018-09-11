@@ -12,21 +12,21 @@
 
 #include "../includes/all_includes.h"
 
-int			is_free(t_move move, size_t nb_path)
+int			is_free(t_move *move, size_t nb_path)
 {
-	t_dll_l		link;
+	t_dll_l		*link;
 
-	link = move->tab[nb_path]->list_path->top->next;
-	return (((t_path)link->content)->is_full ? FALSE : TRUE);
+	link = move->tab[nb_path]->list_path.top->next;
+	return (((t_path*)link->content)->is_full ? FALSE : TRUE);
 }
 
-int			add_f(t_move move, size_t nb_path, int f_nb)
+int			add_f(t_move *move, size_t nb_path, int f_nb)
 {
-	t_path		path;
+	t_path		*path;
 	int			path_more_longh_wait;
 	int			size;
 
-	path = move->tab[nb_path]->list_path->top->next->content;
+	path = move->tab[nb_path]->list_path.top->next->content;
 	size = move->tab[nb_path]->size - 1;
 	path_more_longh_wait = move->nb_fourmis - f_nb;
 	if (nb_path > 0 && path_more_longh_wait < size)
@@ -43,7 +43,7 @@ int			add_f(t_move move, size_t nb_path, int f_nb)
 **restant, je passe le tour
 */
 
-int			put_f_all_start(t_move move)
+int			put_f_all_start(t_move *move)
 {
 	size_t		path;
 	static int	f = 0;
@@ -67,9 +67,9 @@ int			put_f_all_start(t_move move)
 ** parcoutd tout car il pourrait y avpir un trou dans le passage des f
 */
 
-int			recursif_all_f(t_dll_l link, int new_f, int end_room)
+int			recursif_all_f(t_dll_l *link, int new_f, int end_room)
 {
-	t_path		path;
+	t_path		*path;
 	int			i;
 
 	i = 0;
@@ -86,7 +86,7 @@ int			recursif_all_f(t_dll_l link, int new_f, int end_room)
 	return (i);
 }
 
-int			move_all_f(t_move move)
+int			move_all_f(t_move *move)
 {
 	size_t		i;
 	int			res;
@@ -95,7 +95,7 @@ int			move_all_f(t_move move)
 	res = 0;
 	while (i < move->size_tab)
 	{
-		res = recursif_all_f(move->tab[i]->list_path->top->next, 0,
+		res = recursif_all_f(move->tab[i]->list_path.top->next, 0,
 				move->end_room) || res ? 1 : 0;
 		++i;
 	}

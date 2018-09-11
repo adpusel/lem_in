@@ -107,7 +107,7 @@ int get_tunnel(t_data *data, t_get_utils *utils)
 	{
 		if (utils->line[0] == '#')
 			continue;
-		else if (ft_strchr_how_many(utils->line, '-') == 1)
+		else if (ft_how_many_char('-', utils->line) == 1)
 		{
 			if (build_tunnel_link(data, utils) == FALSE)
 				return (FALSE);

@@ -28,7 +28,7 @@ int		cmp_line(char *cur_line, char *line, size_t lim)
 	return (FALSE);
 }
 
-int		test_prev_good_path(t_map map, t_b_path cache, int cur_line)
+int		test_prev_good_path(t_map *map, t_b_path *cache, int cur_line)
 {
 	size_t		col;
 
@@ -52,7 +52,7 @@ int		test_prev_good_path(t_map map, t_b_path cache, int cur_line)
 ** 	les path doivents aussi etre differents des path deja get
 */
 
-void	test_current_path(t_map map, t_b_path cache, int cur_line)
+void	test_current_path(t_map *map, t_b_path *cache, int cur_line)
 {
 	size_t	line;
 
@@ -83,25 +83,27 @@ void	test_current_path(t_map map, t_b_path cache, int cur_line)
 **		je reset le cache
 */
 
-void	is_bettre_best_path(t_best best, int cur_line, size_t nb_path)
+void	is_bettre_best_path(t_best *best, int cur_line, size_t nb_path)
 {
-	t_b_path	cache;
-	t_b_path	data;
+	t_b_path	*cache;
+	t_b_path	*data;
 
+	//todo malloc appelle memoire
 	cache = &best->cache;
 	data = &best->data;
 	if (data->nb < cache->nb)
 	{
 		data->line = cur_line;
-		free_str(&data->tab);
+		ft_mem_free(&data->tab);
 		data->tab = cache->tab;
-		cache->tab = ft_0_new_memory(sizeof(char) * nb_path);
+		(void)nb_path;
+//		cache->tab = ft_0_new_memory(sizeof(char) * nb_path);
 		data->nb = cache->nb;
 	}
 	cache->nb = 0;
 }
 
-void	find_best_path(t_map map, t_best best)
+void	find_best_path(t_map *map, t_best *best)
 {
 	size_t		line;
 
@@ -114,10 +116,10 @@ void	find_best_path(t_map map, t_best best)
 		best->data.tab[best->data.line] = TRUE;
 		++line;
 	}
-	if (g_debug->map_path)
-	{
-		ft_printf("----> les chemins independants \n");
-		print_line_first_int(best->data.tab, map->line, 0);
-		ft_printf("---- \n");
-	}
+//	if (g_debug->map_path)
+//	{
+//		ft_printf("----> les chemins independants \n");
+//		print_line_first_int(best->data.tab, map->line, 0);
+//		ft_printf("---- \n");
+//	}
 }

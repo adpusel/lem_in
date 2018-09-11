@@ -12,9 +12,9 @@
 
 #include "../../includes/all_includes.h"
 
-void		add_all_path(char *map, t_dll_l path_link, size_t line)
+void		add_all_path(char *map, t_dll_l *path_link, size_t line)
 {
-	t_path	path;
+	t_path	*path;
 
 	path = path_link->content;
 	path = path->prev;
@@ -25,29 +25,31 @@ void		add_all_path(char *map, t_dll_l path_link, size_t line)
 	}
 }
 
-t_map		generate_path_map(t_dll room, t_dll path_lst)
+t_map		*generate_path_map(t_dll *room, t_dll *path_lst)
 {
-	t_dll_l		link;
+	t_dll_l		*link;
+	t_map		*map;
 	size_t		i;
-	t_map		map;
 
 	i = 0;
 	link = path_lst->top;
-	map = ft_0_new_memory(sizeof(t_map_00));
+	//todo deux malloc
+	map = NULL;
+//	map = ft_0_new_memory(sizeof(t_map_00));
 	map->col = room->length;
 	map->line = path_lst->length;
-	map->map = ft_0_new_memory(sizeof(char) * map->line * map->col);
+//	map->map = ft_0_new_memory(sizeof(char) * map->line * map->col);
 	while (link)
 	{
 		add_all_path(map->map, link, i * map->col);
 		link = link->next;
 		++i;
 	}
-	if (g_debug->map_path)
-	{
-		ft_printf("\n\n \n");
-		print_path_map(map->map, map->col, map->line);
-		ft_printf("\n \n");
-	}
+//	if (g_debug->map_path)
+//	{
+//		ft_printf("\n\n \n");
+//		print_path_map(map->map, map->col, map->line);
+//		ft_printf("\n \n");
+//	}
 	return (map);
 }

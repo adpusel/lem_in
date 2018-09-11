@@ -15,14 +15,16 @@
 int get_nb_foumis(t_getter *get)
 {
 	static int result = 0;
+	static int ret;
 
 	ask_gnl(get->utils.fd, &get->utils.line, NULL);
-	if (str_is_int(get->utils.line, &result) == FAIL)
-		return (print_err_retrun_int(ERR_FOURMIS_1, g_debug->print_err));
-	else if (result <= 0)
-		return (print_err_retrun_int(ERR_FOURMIS_2, g_debug->print_err));
-	get->data->nb_fourmis = ft_atoi(get->utils.line);
-	return (TRUE);
+	ret = str_is_int(get->utils.line, &result);
+	if (ret != OK || result <= 0)
+	{
+		return (FAIL);
+	}// todo err fourmis
+	get->data->nb_fourmis = result;
+	return (OK);
 }
 
 int lem_getter(t_getter *get)
@@ -31,12 +33,10 @@ int lem_getter(t_getter *get)
 
 	get->utils.fd = g_debug.fd_file;
 	(void) " le reste n'est pas lancer en cas d'erreur   ";
-	ret = TRUE
-		  && get_nb_foumis(get) == FALSE
-		  && get_room(get->data, &get.utils)
-		  && get_tunnel(get->data, &get.utils) ?
-		  TRUE : FAIL;
-	free_str(&get.utils.line);
+	ret = get_nb_foumis(get) == OK
+		  && get_room(get->data, &get->utils) == OK
+		  && get_tunnel(get->data, &get->utils) == OK;
+	ft_mem_free(&get->utils.line);
 	return (ret);
 }
 
@@ -57,9 +57,9 @@ int lem_getter(t_getter *get)
 // TODO : je set data et getter ici, comme getter va set directement dans data,
 // je dois aussi get toute les data avec le parseur pour que c'est beau !!!
 
-void     set_up_parser_data(t_data *data, t_getter *get)
+void set_up_parser_data(t_data *data, t_getter *get)
 {
-    get->data = data;
+	get->data = data;
 	data->start_room = -1;
 	data->end_room = -1;
 }
@@ -71,7 +71,7 @@ int read_and_parse_data(t_data *data)
 
 	set_up_parser_data(data, &get);
 	ret = lem_getter(&get);
-	if (g_debug->parseur == TRUE)
-		check_data(data);
+//	if (g_debug->parseur == TRUE)
+//		check_data(data);
 	return (ret);
 }

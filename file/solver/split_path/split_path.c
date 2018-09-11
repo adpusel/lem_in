@@ -12,16 +12,18 @@
 
 #include "../../includes/all_includes.h"
 
-t_dll_l		new_path_link(int room, t_path prev, t_dll all_path, int size)
+t_dll_l		*new_path_link(int room, t_path *prev, t_dll *all_path, int size)
 {
-	t_path	path;
-
-	path = ft_0_new_memory(sizeof(t_path_00));
+	t_path	*path = NULL;
+	(void)all_path;
+	// todo malloc
+//	path = ft_0_new_memory(sizeof(t_path_00));
 	path->room = room;
 	path->prev = prev;
 	path->size = size;
-	dll_ptr_add_create(path, all_path);
-	return (new_dll_l_ptr(path));
+//	dll_ptr_add_create(path, all_path);
+//	return (new_dll_l_ptr(path));
+return (NULL);
 }
 
 /*
