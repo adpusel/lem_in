@@ -32,6 +32,13 @@ typedef struct		s_d
 	char			option_finded[10];
 }					t_db;
 
+typedef struct		s_debug
+{
+	char			option_finded[10];
+	int				print_parsing;
+} 					t_debug;
+
+
 /*
 **    lem ========================================================
 */
@@ -39,6 +46,7 @@ typedef struct		s_lem
 {
 	t_data			data;
 	t_algo			algo;
+	t_debug			debug;
 }					t_lem;
 
 /*

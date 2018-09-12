@@ -32,21 +32,42 @@ void set_up_algo(t_lem *lem, t_data *data)
 	fill_map_with_tunnel(data, map);
 }
 
+// TODO : la fonction qui get les argv et les passe a db
+// les option -p => manage correctement le parser
+//
+// TODO : changer le fd quand je pourrais ici !
+int lem_get_option(t_debug *deb, int fd)
+{
+	char *line;
+
+	(void)deb;
+	ask_gnl(fd, &line, NULL);
+	ft_printf("%d \n", line);
+	return (TRUE);
+}
+
 int main(void)
 {
 	t_lem lem;
 	//	t_move move;
 	//	int ret;
 
-
 	// TODO : get les options ici  || si bad option return un usage
+	// je vais faire du gnl pour get tout le temps, donc si la premiere ligne commence par un - --> je get des options !
+	lem_get_option(&lem.debug, open_file(""));
+
+
+
+	// TODO : je stoke les argv dans une stuct de lem, et je fais pointer les differents trucs dont j'ai besoin dessus ! :)
+
+
 	// TODO : set le debug avec les options
 	//	set_debug(&g_debug);
 	// TODO : check si le sizeof marche bien
 	ft_zero(&lem);
 	// je gere l'erreur ici c'est plus clair
-	if (read_and_parse_data(&lem.data) == FAIL)
-		ft_printf("ERROR in data given \n");
+	//	if (read_and_parse_data(&lem.data) == FAIL)
+	//		ft_printf("ERROR in data given \n");
 	{
 		// TODO : set directement dans algo sont setup
 		//		set_up_algo(lem, lem->data);
@@ -64,7 +85,7 @@ int main(void)
 	}
 	//	else
 	//	ft_printf("NO SOLUTION\n");
-	free_lem(&lem);
+	//	free_lem(&lem);
 	//	free(g_debug);
 	return (EXIT_SUCCESS);
 }

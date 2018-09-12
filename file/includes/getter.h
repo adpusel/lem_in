@@ -23,8 +23,6 @@ typedef struct		s_data
 	t_dll			*tunnel;
 	int				start_room;
 	int				end_room;
-	int				x;
-	int				y;
 	int				nb_fourmis;
 	int				lim;
 }					t_data;
