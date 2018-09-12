@@ -94,7 +94,7 @@ void	is_bettre_best_path(t_best *best, int cur_line, size_t nb_path)
 	if (data->nb < cache->nb)
 	{
 		data->line = cur_line;
-		ft_mem_free(&data->tab);
+		ft_str_free(&data->tab);
 		data->tab = cache->tab;
 		(void)nb_path;
 //		cache->tab = ft_0_new_memory(sizeof(char) * nb_path);

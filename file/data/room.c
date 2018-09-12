@@ -54,6 +54,6 @@ void destroy_room(void *room_ptr)
 	t_room *room;
 
 	room = room_ptr;
-	ft_mem_free(&room->name);
+	ft_str_free(&room->name);
 	free(room);
 }

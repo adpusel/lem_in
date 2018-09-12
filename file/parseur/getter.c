@@ -17,7 +17,13 @@ int get_nb_foumis(t_getter *get)
 	static int result = 0;
 	static int ret;
 
-	ask_gnl(get->utils.fd, &get->utils.line, NULL);
+	ask_gnl(get->utils.fd, &get->utils.line, NULL, FALSE);
+	// je vais mettre le parseur ici c'est moins chiant
+	// sinon je doit faire une struc pour gnl qui va get les data\
+	// toute seul, que je passe, donc io, db, data, algo || c'est plutot claire
+	// avec dedant un count qui set get next line ou pas :) ca me permet
+	// de bien decouper le code et c'est tres claire !!
+	//
 	ret = str_is_int(get->utils.line, &result);
 	if (ret != OK || result <= 0)
 	{
@@ -31,12 +37,12 @@ int lem_getter(t_getter *get)
 {
 	int ret;
 
-//	get->utils.fd = g_debug.fd_file;
+	//	get->utils.fd = g_debug.fd_file;
 	(void) " le reste n'est pas lancer en cas d'erreur   ";
 	ret = get_nb_foumis(get) == OK
 		  && get_room(get->data, &get->utils) == OK
 		  && get_tunnel(get->data, &get->utils) == OK;
-	ft_mem_free(&get->utils.line);
+	ft_str_free(&get->utils.line);
 	return (ret);
 }
 
@@ -71,7 +77,7 @@ int read_and_parse_data(t_data *data)
 
 	set_up_parser_data(data, &get);
 	ret = lem_getter(&get);
-//	if (g_debug->parseur == TRUE)
-//		check_data(data);
+	//	if (g_debug->parseur == TRUE)
+	//		check_data(data);
 	return (ret);
 }

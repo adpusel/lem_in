@@ -92,7 +92,7 @@ int get_room(t_data *data, t_get_utils *utils)
 	static t_dll_l link;
 //	int ret;
 
-	while (ask_gnl(utils->fd, &utils->line, NULL))
+	while (ask_gnl(utils->fd, &utils->line, NULL, TRUE))
 	{
 		if (utils->line[0] == '#')
 			utils->type_salle = manage_comment(utils->line);

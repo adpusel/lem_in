@@ -10,7 +10,7 @@ add_library(lem_in__lib STATIC
         ${SOURCES_FILES_2}
         ${SOURCES_FILES_3}
         ${SOURCES_FILES_4}
-        )
+        includes/prog_option.h)
 
 #*------------------------------------*\
 #    link avec les lib

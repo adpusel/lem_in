@@ -10,34 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LEM_IN_ALL_INCLUDES_H
-# define LEM_IN_ALL_INCLUDES_H
+#include "all_includes.h"
+
+#ifndef PROG_OPTION_H
+#define PROG_OPTION_H
 
 /*
-**    LIBFT
+**    show all data to parser
 */
-# include "ft_library_header.h"
+# define PARCER_DATA "p"
+# define PARCER_DAT 'e'
+
 
 /*
-**    project includes
+**    all option
 */
-# include "struct.h"
-# include "getter.h"
-# include "function.h"
-# include "struct_parser.h"
-# include "prog_option.h"
-
-/*
-**    g_debug
-*/
-void	print_room_dll_l(void *room_ptr);
-
-/*
-**    DEFINE
-*/
-# define L_START 1
-# define L_END -1
-# define ERR_FOURMIS_1 "le nombre de fourmis n'est pas un integer"
-# define ERR_FOURMIS_2 "le nb de fourmis n'est pas positif"
 
 #endif

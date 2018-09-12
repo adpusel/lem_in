@@ -32,8 +32,8 @@ t_move		*is_solution(t_finder *finder, t_data *data)
 	best = new_best_path(path_map->line);
 	find_best_path(path_map, best);
 	move = new_move(data, &best->data, finder);
-	ft_mem_free(&best->cache.tab);
-	ft_mem_free(&best->data.tab);
+	ft_str_free(&best->cache.tab);
+	ft_str_free(&best->data.tab);
 	free(best);
 	destroy_map(path_map);
 	return (move);
