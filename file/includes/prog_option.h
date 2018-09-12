@@ -15,6 +15,9 @@
 #ifndef PROG_OPTION_H
 #define PROG_OPTION_H
 
+
+# define NAME_PROG "lem-in"
+
 /*
 **    show all data to parser
 */

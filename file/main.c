@@ -33,28 +33,52 @@ void set_up_algo(t_lem *lem, t_data *data)
 }
 
 // TODO : la fonction qui get les argv et les passe a db
+// todo option qui output dans un file sans les # pcq ca marche pas dans mon visu pour les send a visu //  sa cappell trace 1 :)
 // les option -p => manage correctement le parser
-//
-// TODO : changer le fd quand je pourrais ici ! || j'ai pas set les argument
+
+void p_lusage(char *option, char *all_option, char *text, int indent)
+{
+	ft_printf("%s %*s%s [%s] %s\n", option, indent, "", all_option, text);
+}
+
+void print_usage(char *name_prog)
+{
+	static int indent = 8;
+	ft_printf("Usage %4s ./%s, [option] < $ARG | file\n", "", name_prog);
+	printf("----- \n");
+	p_lusage("-p", "parser", "print all data parsed", indent);
+}
+
+
 int lem_get_option(t_debug *deb, int fd)
 {
+	static char *real_option = { PARCER_DATA };
 	char *line;
 	char **option_splitted;
 	int size_tab;
-	static char *real_option = {PARCER_DATA};
-	(void)deb;
-	// s'il y a des option je fais juste un tour donc pas besoin de check :)
-	// si ce n'est pas une option ? // plus simple de le get dans le parseur ?
+	int ret;
+
+	ret = TRUE;
 	ask_gnl(fd, &line, NULL, TRUE);
 	if (*line == '-')
 	{
 		if (ft_str_split(line, " ", &option_splitted, &size_tab) != OK)
-		    return (FAIL);
-		get_option_gnl(option_splitted,deb->option_finded, real_option);
+			return (FAIL);
+		if (get_option_gnl(option_splitted, deb->option_finded, real_option)
+			== TRUE)
+		{
+			// set les option dans ma stucture :)
+		}
+		else
+		{
+			print_usage(NAME_PROG);
+			ret = FAIL;
+		}
 	}
-	ft_printf("%s \n", line);
-	return (TRUE);
+	return (ret);
 }
+
+int g_build;
 
 int main(void)
 {
@@ -64,19 +88,15 @@ int main(void)
 
 	// TODO : get les options ici  || si bad option return un usage
 	// je vais faire du gnl pour get tout le temps, donc si la premiere ligne commence par un - --> je get des options !
-	lem_get_option(&lem.debug, open_file("/Users/adpusel/Dropbox/42/projects/lem_in/rendu/test/0__test_option/test_option_good"));
-
-
-
-	// TODO : je stoke les argv dans une stuct de lem, et je fais pointer les differents trucs dont j'ai besoin dessus ! :)
-
+	lem_get_option(&lem.debug, open_file(
+	 "/Users/adpusel/Dropbox/42/projects/lem_in/rendu/test/0__test_option/test_option_good"));
 
 	// TODO : set le debug avec les options
 	//	set_debug(&g_debug);
 	// TODO : check si le sizeof marche bien
 	ft_zero(&lem);
 	// je gere l'erreur ici c'est plus clair
-//		if (read_and_parse_data(&lem.data) == FAIL)
+	//		if (read_and_parse_data(&lem.data) == FAIL)
 	//		ft_printf("ERROR in data given \n");
 	{
 		// TODO : set directement dans algo sont setup
