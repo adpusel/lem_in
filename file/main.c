@@ -89,9 +89,7 @@ int get_all_data_fd(int fd, t_dll *list)
 	int ret;
 
 	ret = 1;
-	// si pb avec gnl --> 0
-	// si pb avec
-	while (ret)
+	while (ret == OK)
 	{
 		ret = ask_gnl(fd,
 					  &lines,
@@ -100,6 +98,8 @@ int get_all_data_fd(int fd, t_dll *list)
 			  && new_dll_l(lines,
 						   ft_strlen(lines),
 						   &link) == OK;
+		if (ret == OK)
+		    dll_add_at_index(link, list, ALL_LIST);
 	}
 	return (ret);
 }
