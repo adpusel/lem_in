@@ -12,6 +12,8 @@
 
 #include "all_includes.h"
 
+int g_build;
+
 void set_up_algo(t_lem *lem, t_data *data)
 {
 	t_map *map;
@@ -49,7 +51,6 @@ void print_usage(char *name_prog)
 	p_lusage("-p", "parser", "print all data parsed", indent);
 }
 
-
 int lem_get_option(t_debug *deb, int fd)
 {
 	static char *real_option = { PARCER_DATA };
@@ -67,34 +68,66 @@ int lem_get_option(t_debug *deb, int fd)
 		if (get_option_gnl(option_splitted, deb->option_finded, real_option)
 			== TRUE)
 		{
-			// set les option dans ma stucture :)
+			if (check_char_into_str(deb->option_finded, 'p'))
+				deb->print_parsing = TRUE;
 		}
 		else
 		{
 			print_usage(NAME_PROG);
 			ret = FAIL;
 		}
+		ask_gnl(fd, &line, NULL, TRUE);
 	}
 	return (ret);
 }
 
-int g_build;
+// ici je fais un gnl qui va get toute les sturct et les donne a ma liste chainer :)
+int get_all_data_fd(int fd, t_dll *list)
+{
+	t_dll_l *link;
+	char *lines;
+	int ret;
 
-int main(void)
+	ret = 1;
+	// si pb avec gnl --> 0
+	// si pb avec
+	while (ret)
+	{
+		ret = ask_gnl(fd,
+					  &lines,
+					  NULL,
+					  TRUE) == OK
+			  && new_dll_l(lines,
+						   ft_strlen(lines),
+						   &link) == OK;
+	}
+	return (ret);
+}
+
+int main(int ac, char **av)
 {
 	t_lem lem;
+	ft_zero(&lem);
 	//	t_move move;
 	//	int ret;
 
+
+	(void) av;
+	ft_printf("%d \n", ac);
+	g_build = open_file(
+	 "/Users/adpusel/code/42/lem_in/test/dur_test/test_2_test");
+
+	// si c'est une option file ? --> je regarde direct dedans comment faire :)
 	// TODO : get les options ici  || si bad option return un usage
 	// je vais faire du gnl pour get tout le temps, donc si la premiere ligne commence par un - --> je get des options !
-	lem_get_option(&lem.debug, open_file(
-	 "/Users/adpusel/Dropbox/42/projects/lem_in/rendu/test/0__test_option/test_option_good"));
+	if (lem_get_option(&lem.debug, g_build) == FALSE)
+		return (EXIT_FAILURE);
 
 	// TODO : set le debug avec les options
 	//	set_debug(&g_debug);
+
+	read_and_parse_data(&lem.data, &lem.debug);
 	// TODO : check si le sizeof marche bien
-	ft_zero(&lem);
 	// je gere l'erreur ici c'est plus clair
 	//		if (read_and_parse_data(&lem.data) == FAIL)
 	//		ft_printf("ERROR in data given \n");

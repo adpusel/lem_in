@@ -39,9 +39,9 @@ __LIB_FT_INC__ = ${__LIB_FT_PATH__}ft_library_header.h
 #*------------------------------------*/
 __SOURCES_PATH__ = ${__PATH__}
 
-# COMMANDE find . -type f -name '.c' | sed 's/^..//'  |  tr '\n' ' ')
-#__TMP__ := $(shell cd ${__SOURCES_PATH__} ; find . -type f -name ' .c' | sed 's/^..//'  |  tr '\n' ' ' | pbcopy)
-__TMP__ = data/best_path.c data/finder_finder_link.c data/lem.c data/map.c data/move.c data/room.c data/tunnel.c debug/debug_set.c debug/src/debug_map.c debug/src/debug_parseur.c debug/src/debug_path.c main.c main_2.c parseur/get_room.c parseur/get_room_utils.c parseur/get_tunnel.c parseur/getter.c solver/algo/algo.c solver/algo/find_best_path.c solver/algo/shorty_baby.c solver/move_f.c solver/move_f_main.c solver/sort_path/generate_map_path.c solver/split_path/clean_working_dll.c solver/split_path/split_path.c
+# COMMANDE find . -type f -name '.c' | sed 's/^..//'  |  tr '\n' ' ' | pbcopy)
+__TMP__ := $(shell cd ${__SOURCES_PATH__} ; find . -type f -name ' .c' | sed 's/^..//'  |  tr '\n' ' ')
+#__TMP__ = data/best_path.c data/finder_finder_link.c data/lem.c data/map.c data/move.c data/room.c data/tunnel.c debug/debug_set.c debug/src/debug_map.c debug/src/debug_parseur.c debug/src/debug_path.c main.c main_2.c parseur/get_room.c parseur/get_room_utils.c parseur/get_tunnel.c parseur/getter.c solver/algo/algo.c solver/algo/find_best_path.c solver/algo/shorty_baby.c solver/move_f.c solver/move_f_main.c solver/sort_path/generate_map_path.c solver/split_path/clean_working_dll.c solver/split_path/split_path.c
 
 __SRC__ = $(addprefix $(__SOURCES_PATH__), $(__TMP__))
 

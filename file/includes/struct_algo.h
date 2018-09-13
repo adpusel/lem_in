@@ -41,11 +41,4 @@ typedef struct		s_cache
 	int				option;
 }					t_cache;
 
-typedef struct		s_algo
-{
-	t_cache			cache;
-	t_map			map;
-}					t_algo;
-
-
 #endif

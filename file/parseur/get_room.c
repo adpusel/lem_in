@@ -90,9 +90,11 @@ int check_err_room(t_data *data)
 int get_room(t_data *data, t_get_utils *utils)
 {
 	static t_dll_l link;
+	size_t nb_line;
 //	int ret;
 
-	while (ask_gnl(utils->fd, &utils->line, NULL, TRUE))
+	//je dois enregister le fichier entier et boucler dessus ensuite.
+	while (ask_gnl(utils->fd, &utils->line, &nb_line, TRUE))
 	{
 		if (utils->line[0] == '#')
 			utils->type_salle = manage_comment(utils->line);

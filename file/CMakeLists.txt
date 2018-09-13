@@ -5,12 +5,16 @@ file(GLOB SOURCES_FILES_2 "./**/*.c")
 file(GLOB SOURCES_FILES_3 "./**/**/*.c")
 file(GLOB SOURCES_FILES_4 "./**/**/**/*.c")
 
+file(GLOB includes "./**/*.h")
+
+
 add_library(lem_in__lib STATIC
         ${SOURCES_FILES_1}
         ${SOURCES_FILES_2}
         ${SOURCES_FILES_3}
         ${SOURCES_FILES_4}
-        includes/prog_option.h)
+        ${includes}
+        )
 
 #*------------------------------------*\
 #    link avec les lib

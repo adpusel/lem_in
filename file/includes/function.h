@@ -24,7 +24,7 @@ int set_debug(t_db *db);
 /*
 **    Parseur
 */
-int		read_and_parse_data(t_data *data);
+int read_and_parse_data(t_data *data, t_debug *db);
 
 /*
 **    split
