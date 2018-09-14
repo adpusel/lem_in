@@ -81,9 +81,9 @@ int lem_get_option(t_debug *deb, t_dll *data_list)
 			print_usage(NAME_PROG);
 			ret = FAIL;
 		}
-		if (ask_data_list(data_list, &line, TRUE) != OK)
+		if (data_list->length == 1)
 		{
-			ft_printf("just options are given \n");;
+			ft_printf("Just options are given \n");;
 			ret = FAIL;
 		}
 	}

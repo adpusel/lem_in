@@ -43,7 +43,9 @@ int ask_data_list(t_dll *data_list, char **line, int next_line)
 {
 	static t_dll_l *link = NULL;
 	static int counter = 0;
+	t_dll_l *dev_link;
 
+	dev_link = link;
 	if (counter == 0)
 	{
 		link = data_list->top;
