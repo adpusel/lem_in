@@ -15,20 +15,19 @@
 int get_nb_foumis(t_getter *get)
 {
 	static int result = 0;
-	static size_t nb_line;
-	static int ret;
+	static int nb_line;
 
-	ask_gnl(get->utils.fd, &get->utils.line, &nb_line, FALSE);
+	ask_data_list(FALSE, &get->utils.line, &nb_line, NULL);
 	// je vais mettre le parseur ici c'est moins chiant
 	// sinon je doit faire une struc pour gnl qui va get les data\
 	// toute seul, que je passe, donc io, db, data, algo || c'est plutot claire
 	// avec dedant un count qui set get next line ou pas :) ca me permet
 	// de bien decouper le code et c'est tres claire !!
 	//
-	ret = str_is_int(get->utils.line, &result);
-	if (ret != OK || result <= 0)
+	if (str_is_int(get->utils.line, &result) == OK
+		&& result <= 0)
 	{
-		ft_printf("ligne %ld, le nb fourmis est incorrect \n", nb_line);
+		ft_printf("ligne %d, le nb fourmis est incorrect \n", nb_line);
 		return (FAIL);
 	}
 	get->data->nb_fourmis = result;
@@ -53,10 +52,10 @@ int get_nb_foumis(t_getter *get)
 // TODO : je set data et getter ici, comme getter va set directement dans data,
 // je dois aussi get toute les data avec le parseur pour que c'est beau !!!
 
-void set_up_parser_data(t_data *data, t_getter *get, t_debug *db)
+void set_up_parser_data(t_data *data, t_getter *get, t_debug *debug)
 {
 	get->data = data;
-	get->debug = db;
+	get->debug = debug;
 	data->start_room = -1;
 	data->end_room = -1;
 }

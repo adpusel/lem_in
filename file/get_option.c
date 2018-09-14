@@ -47,7 +47,7 @@ int split_and_get_option(char *line, t_debug *debug)
 	t_split split;
 	static char *real_option = { PARCER_DATA };
 
-	ft_zero(&split);
+	ft_zero(&split, sizeof(t_split));
 
 	if (ft_str_split(line, " ", &split) != OK)
 		return (FAIL);
@@ -72,7 +72,7 @@ int lem_get_option(t_debug *deb, t_dll *data_list)
 	char *line;
 	static int ret = TRUE;
 
-	if (ask_data_list(data_list, &line, FALSE) != TRUE)
+	if (ask_data_list(FALSE, &line, NULL, data_list) != TRUE)
 		ft_printf("NO DATA\n");
 	if (*line == '-')
 	{
@@ -81,13 +81,16 @@ int lem_get_option(t_debug *deb, t_dll *data_list)
 			print_usage(NAME_PROG);
 			ret = FAIL;
 		}
-		if (data_list->length == 1)
+		else if (data_list->length == 1)
 		{
 			ft_printf("Just options are given \n");;
 			ret = FAIL;
 		}
+		else
+			ask_data_list(TRUE, &line, NULL, data_list);
 	}
-	if (ret == OK)
-		print_list_data(deb, data_list);
+	// TODO : remettre le print des data
+//	if (ret == OK && deb->print_parsing == TRUE)
+//		print_list_data(deb, data_list);
 	return (ret);
 }

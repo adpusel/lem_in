@@ -12,7 +12,7 @@
 
 #include "all_includes.h"
 
-int get_all_data_fd(int fd, t_dll *list, t_debug *db)
+int get_all_data_fd(int fd, t_dll *list)
 {
 	t_dll_l *link;
 	char *lines;
@@ -32,17 +32,32 @@ int get_all_data_fd(int fd, t_dll *list, t_debug *db)
 		}
 		dll_add_at_index(link, list, ALL_LIST);
 	}
-	if (ret == OK && db->print_parsing == TRUE)
-	{
-
-	}
 	return (ret);
 }
 
-int ask_data_list(t_dll *data_list, char **line, int next_line)
+/**
+ * @param
+ * @return FALSE --> tout est lu, TRUE --> reste des lines
+ */
+
+
+/**
+ * \brief 	au premier appel la function keep la list,
+ * 			elle fonctionne comme ask gnl
+ * @param next_line 	next_line si TRUE, passe a la seconde line
+ * @param ptr_nb_line  	le nb de la line current
+ * @param data_list 	set la premiere fois pour get
+ * @return
+ */
+int ask_data_list(
+ int next_line,
+ char **line,
+ int *ptr_nb_line,
+ t_dll *data_list)
 {
 	static t_dll_l *link = NULL;
 	static int counter = 0;
+	static int cur_line = 0;
 	t_dll_l *dev_link;
 
 	dev_link = link;
@@ -53,10 +68,15 @@ int ask_data_list(t_dll *data_list, char **line, int next_line)
 	}
 	if (link != NULL)
 	{
-		*line = link->content;
 		if (next_line == TRUE)
+		{
+			cur_line++;
 			link = link->next;
-		return (TRUE);
+		}
+		if (ptr_nb_line != NULL)
+			*ptr_nb_line = cur_line;
+		*line = link->content;
+		return (OK);
 	}
 	else
 		return (FALSE);

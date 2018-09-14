@@ -42,7 +42,7 @@ int new_checked_room_link(char *name, t_data *data, t_dll_l **ptr_link)
 	return (ret);
 }
 
-// todo check les numero ici
+// todo check les numero ici pour ne pas avoir de room au meme endroit
 void add_x_y_surfinthenorme(int x, int y, t_room *room)
 {
 	room->x = x;

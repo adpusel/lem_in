@@ -30,8 +30,12 @@ int print_list_input_fd(t_dll_l *link, void *ptr);
 /*
 **   get input
 */
-int ask_data_list(t_dll *data_list, char **line, int next_line);
-int get_all_data_fd(int fd, t_dll *list, t_debug *db);
+int ask_data_list(
+ int next_line,
+ char **line,
+ int *ptr_nb_line,
+ t_dll *data_list);
+int get_all_data_fd(int fd, t_dll *list);
 
 /*
 **    get option

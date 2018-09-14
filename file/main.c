@@ -38,23 +38,22 @@ void set_up_algo(t_lem *lem, t_data *data)
 
 void t_dev(t_debug *db)
 {
-	db->print_parsing = TRUE;
+	db->print_parsing = FALSE;
 }
 
 int main()
 {
 	t_lem lem;
-	ft_zero(&lem);
+	ft_zero(&lem, sizeof(t_lem));
 	//	t_move move;
 	//	int ret;
 
 	/*------------------------------------*\
 	    get les data
 	\*------------------------------------*/
-	t_dev(&lem.debug);
 	g_build = open_file(
 	 "/Users/adpusel/code/42/lem_in/test/dur_test/test_2_test");
-	get_all_data_fd(g_build, &lem.data.all_data, &lem.debug);
+	get_all_data_fd(g_build, &lem.data.all_data);
 
 
 	// si c'est une option file ? --> je regarde direct dedans comment faire :)
@@ -62,11 +61,13 @@ int main()
 	// je vais faire du gnl pour get tout le temps, donc si la premiere ligne commence par un - --> je get des options !
 	if (lem_get_option(&lem.debug, &lem.data.all_data) == FALSE)
 		return (EXIT_FAILURE);
+	t_dev(&lem.debug);
+
 
 	// TODO : set le debug avec les options
 	//	set_debug(&g_debug);
 
-//	read_and_parse_data(&lem.data, &lem.debug);
+	read_and_parse_data(&lem.data, &lem.debug);
 	// TODO : check si le sizeof marche bien
 	// je gere l'erreur ici c'est plus clair
 	//		if (read_and_parse_data(&lem.data) == FAIL)
