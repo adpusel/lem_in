@@ -10,29 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/all_includes.h"
-
-int print_parsing_room_dll(t_dll_l *link, void *ptr)
-{
-	t_room *room;
-
-	(void) ptr;
-	room = link->content;
-	ft_printf("link n =   %10d \n", room->nb);
-	ft_printf("name :     %10s\n", room->name);
-	ft_printf("coordonnes %10d %10d\n", room->x, room->y);
-	ft_printf("================= \n\n");
-	return (FALSE);
-}
-
-void print_room_parsing(t_data *data, t_debug *debug)
-{
-	if (debug->print_parsing == TRUE)
-	{
-		sep("les room parses \nde la struct data.room");
-		dll_func(&data->room, print_parsing_room_dll, NULL, ALL_LIST);
-	}
-}
+#include "all_includes.h"
 
 int check_err_room(t_data *data)
 {
@@ -100,6 +78,10 @@ int init_room_check_xy(t_room *room, char *line, int nb_line, int nb_room)
 	return (ret);
 }
 
+/*
+**    test et ajoute apres verification le link
+*/
+
 int test_add_room_link(t_data *data, t_get_utils *utils, int nb_line)
 {
 	static int nb_room = 0;
@@ -129,6 +111,10 @@ int test_add_room_link(t_data *data, t_get_utils *utils, int nb_line)
 	return (TRUE);
 }
 
+/*
+**    tant que maillons est correct
+*/
+
 int get_room(t_data *data, t_get_utils *utils, t_debug *debug)
 {
 	static int nb_line;
@@ -140,8 +126,8 @@ int get_room(t_data *data, t_get_utils *utils, t_debug *debug)
 			utils->type_salle = manage_comment(utils->line);
 		else if (ft_how_many_char(' ', utils->line) == 2)
 		{
-			if (ft_how_many_char('-', utils->line) > 0 ||
-				utils->line[0] == 'L')
+			if (ft_how_many_char('-', utils->line) > 0
+				|| utils->line[0] == 'L')
 			{
 				ft_printf("line %d --> err dans les rooms \n", nb_line);
 				return (FALSE);
@@ -150,7 +136,7 @@ int get_room(t_data *data, t_get_utils *utils, t_debug *debug)
 				return (FALSE);
 		}
 		else
-			return (FALSE);
+			break;
 	}
 	ret = check_err_room(data);
 	if (ret == OK)

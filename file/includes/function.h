@@ -26,6 +26,7 @@ int set_debug(t_db *db);
 */
 void sep(char *text);
 int print_list_input_fd(t_dll_l *link, void *ptr);
+void print_room_parsing(t_data *data, t_debug *debug);
 
 /*
 **   get input

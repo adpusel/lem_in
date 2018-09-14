@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/all_includes.h"
+#include "all_includes.h"
 
 int manage_comment(char *comment_str)
 {
@@ -21,7 +21,6 @@ int manage_comment(char *comment_str)
 	return (FALSE);
 }
 
-// todo message err ici mon petit
 int lim_same_coord(t_room *current_room, t_room *new_room)
 {
 	if (current_room->x == new_room->x)
@@ -38,7 +37,6 @@ int lim_same_coord(t_room *current_room, t_room *new_room)
 	return (FALSE);
 }
 
-// todo message err ici mon petit
 int lim_same_name(t_room *current_room, t_room *new_room)
 {
 	if (ft_str_eq(current_room->name, new_room->name) == TRUE)
