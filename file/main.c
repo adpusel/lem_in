@@ -34,98 +34,39 @@ void set_up_algo(t_lem *lem, t_data *data)
 	fill_map_with_tunnel(data, map);
 }
 
-// TODO : la fonction qui get les argv et les passe a db
-// todo option qui output dans un file sans les # pcq ca marche pas dans mon visu pour les send a visu //  sa cappell trace 1 :)
-// les option -p => manage correctement le parser
 
-void p_lusage(char *option, char *all_option, char *text, int indent)
+
+void t_dev(t_debug *db)
 {
-	ft_printf("%s %*s%s [%s] %s\n", option, indent, "", all_option, text);
+	db->print_parsing = TRUE;
 }
 
-void print_usage(char *name_prog)
-{
-	static int indent = 8;
-	ft_printf("Usage %4s ./%s, [option] < $ARG | file\n", "", name_prog);
-	printf("----- \n");
-	p_lusage("-p", "parser", "print all data parsed", indent);
-}
-
-int lem_get_option(t_debug *deb, int fd)
-{
-	static char *real_option = { PARCER_DATA };
-	char *line;
-	char **option_splitted;
-	int size_tab;
-	int ret;
-
-	ret = TRUE;
-	ask_gnl(fd, &line, NULL, TRUE);
-	if (*line == '-')
-	{
-		if (ft_str_split(line, " ", &option_splitted, &size_tab) != OK)
-			return (FAIL);
-		if (get_option_gnl(option_splitted, deb->option_finded, real_option)
-			== TRUE)
-		{
-			if (check_char_into_str(deb->option_finded, 'p'))
-				deb->print_parsing = TRUE;
-		}
-		else
-		{
-			print_usage(NAME_PROG);
-			ret = FAIL;
-		}
-		ask_gnl(fd, &line, NULL, TRUE);
-	}
-	return (ret);
-}
-
-// ici je fais un gnl qui va get toute les sturct et les donne a ma liste chainer :)
-int get_all_data_fd(int fd, t_dll *list)
-{
-	t_dll_l *link;
-	char *lines;
-
-	while (ask_gnl(fd,
-				   &lines,
-				   NULL,
-				   TRUE) == OK)
-	{
-		if (new_dll_l(lines,
-					  ft_strlen(lines),
-					  &link) != OK)
-		{
-			return (FALSE);
-		}
-		dll_add_at_index(link, list, ALL_LIST);
-	}
-	return (TRUE);
-}
-
-int main(int ac, char **av)
+int main()
 {
 	t_lem lem;
 	ft_zero(&lem);
 	//	t_move move;
 	//	int ret;
 
-
-	(void) av;
-	ft_printf("%d \n", ac);
+	/*------------------------------------*\
+	    get les data
+	\*------------------------------------*/
+	t_dev(&lem.debug);
 	g_build = open_file(
 	 "/Users/adpusel/code/42/lem_in/test/dur_test/test_2_test");
+	get_all_data_fd(g_build, &lem.data.all_data, &lem.debug);
+
 
 	// si c'est une option file ? --> je regarde direct dedans comment faire :)
 	// TODO : get les options ici  || si bad option return un usage
 	// je vais faire du gnl pour get tout le temps, donc si la premiere ligne commence par un - --> je get des options !
-	if (lem_get_option(&lem.debug, g_build) == FALSE)
+	if (lem_get_option(&lem.debug, &lem.data.all_data) == FALSE)
 		return (EXIT_FAILURE);
 
 	// TODO : set le debug avec les options
 	//	set_debug(&g_debug);
 
-	read_and_parse_data(&lem.data, &lem.debug);
+//	read_and_parse_data(&lem.data, &lem.debug);
 	// TODO : check si le sizeof marche bien
 	// je gere l'erreur ici c'est plus clair
 	//		if (read_and_parse_data(&lem.data) == FAIL)
@@ -151,3 +92,4 @@ int main(int ac, char **av)
 	//	free(g_debug);
 	return (EXIT_SUCCESS);
 }
+

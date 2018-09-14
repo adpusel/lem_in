@@ -22,8 +22,27 @@ extern t_db g_debug;
 int set_debug(t_db *db);
 
 /*
-**    Parseur
+**    print db
 */
+void sep(char *text);
+int print_list_input_fd(t_dll_l *link, void *ptr);
+
+/*
+**   get input
+*/
+int ask_data_list(t_dll *data_list, char **line, int next_line);
+int get_all_data_fd(int fd, t_dll *list, t_debug *db);
+
+/*
+**    get option
+*/
+int lem_get_option(t_debug *deb, t_dll *data_list);
+
+
+/*
+**    Parseur ==================================================================
+*/
+
 int read_and_parse_data(t_data *data, t_debug *db);
 
 /*

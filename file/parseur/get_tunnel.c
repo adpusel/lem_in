@@ -55,14 +55,14 @@ int check_valid_room_name(char *line, t_dll *room_list, t_room **room_1,
  t_room **room_2)
 {
 	char **tunnel_line_splitted;
-	int size_split;
+	t_split split;
 
-	if (ft_str_split(line, "-", &tunnel_line_splitted, &size_split) != OK)
+	if (ft_str_split(line, "-", &split) != OK)
 		return (MEM_LACK);
-	if (size_split == 2)
+	if (split.size == 2)
 	{
-		*room_1 = find_room_name_tunnel(*tunnel_line_splitted, room_list);
-		*room_2 = find_room_name_tunnel(*(tunnel_line_splitted + 1), room_list);
+		*room_1 = find_room_name_tunnel(*split.tab, room_list);
+		*room_2 = find_room_name_tunnel(*(split.tab + 1), room_list);
 	}
 	ft_free_split(&tunnel_line_splitted);
 	return (*room_1 && *room_2 ? OK : FAIL);

@@ -40,19 +40,18 @@ int manage_end_start(int i, t_data *data, t_get_utils *utils)
 //				 *(room_splited + 2),  les room
 int add_room_link(t_data *data, t_get_utils *utils, t_dll_l *room_link)
 {
-	char **room_splited;
+	t_split split;
 	static int i = 0;
-	int size_split;
 	int ret;
 
-	ret = ft_str_split(utils->line, " ", &room_splited, &size_split) == OK &&
-		  new_checked_room_link(*room_splited, data, &room_link) == OK;
+	ret = ft_str_split(utils->line, " ", &split) == OK &&
+		  new_checked_room_link(*split.tab, data, &room_link) == OK;
 	// todo set err parsing et err memoire
 	if (room_link)
 		((t_room *) room_link->content)->type = manage_end_start(i, data,
 																 utils);
 	dll_add_at_index(room_link, &data->room, data->room.length);
-	ft_free_split(&room_splited);
+	ft_free_split(&split.tab);
 	i++;
 	return (ret);
 }
