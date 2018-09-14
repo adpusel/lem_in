@@ -51,7 +51,7 @@ int add_room_link(t_data *data, t_get_utils *utils, t_dll_l *room_link)
 	if (room_link)
 		((t_room *) room_link->content)->type = manage_end_start(i, data,
 																 utils);
-	dll_add_at_index(room_link, data->room, data->room->length);
+	dll_add_at_index(room_link, &data->room, data->room.length);
 	ft_free_split(&room_splited);
 	i++;
 	return (ret);

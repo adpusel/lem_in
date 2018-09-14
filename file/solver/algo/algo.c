@@ -28,7 +28,7 @@ t_move		*is_solution(t_finder *finder, t_data *data)
 	t_best		*best;
 
 	move = NULL;
-	path_map = generate_path_map(data->room, finder->valid_path);
+	path_map = generate_path_map(&data->room, finder->valid_path);
 	best = new_best_path(path_map->line);
 	find_best_path(path_map, best);
 	move = new_move(data, &best->data, finder);

@@ -29,8 +29,8 @@ void set_up_algo(t_lem *lem, t_data *data)
 
 	(void) "  set up map  ";
 	map = &algo->map;
-	map->col = data->room->length;
-	map->size = data->room->length * data->room->length;
+	map->col = data->room.length;
+	map->size = data->room.length * data->room.length;
 	fill_map_with_tunnel(data, map);
 }
 
@@ -86,22 +86,21 @@ int get_all_data_fd(int fd, t_dll *list)
 {
 	t_dll_l *link;
 	char *lines;
-	int ret;
 
-	ret = 1;
-	while (ret == OK)
+	while (ask_gnl(fd,
+				   &lines,
+				   NULL,
+				   TRUE) == OK)
 	{
-		ret = ask_gnl(fd,
-					  &lines,
-					  NULL,
-					  TRUE) == OK
-			  && new_dll_l(lines,
-						   ft_strlen(lines),
-						   &link) == OK;
-		if (ret == OK)
-		    dll_add_at_index(link, list, ALL_LIST);
+		if (new_dll_l(lines,
+					  ft_strlen(lines),
+					  &link) != OK)
+		{
+			return (FALSE);
+		}
+		dll_add_at_index(link, list, ALL_LIST);
 	}
-	return (ret);
+	return (TRUE);
 }
 
 int main(int ac, char **av)

@@ -22,7 +22,7 @@ void kill_algo(t_algo *algo)
 
 void free_lem(t_lem *lem)
 {
-	destroy_dll_stack(lem->data.room, &destroy_room);
-	destroy_dll_stack(lem->data.tunnel, &destroy_tunnel);
+	destroy_dll_stack(&lem->data.room, &destroy_room);
+	destroy_dll_stack(&lem->data.tunnel, &destroy_tunnel);
 	kill_algo(&lem->algo);
 }

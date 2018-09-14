@@ -23,8 +23,9 @@
 */
 typedef struct		s_data
 {
-	t_dll			*room;
-	t_dll			*tunnel;
+	t_dll			room;
+	t_dll			all_data;
+	t_dll			tunnel;
 	int				start_room;
 	int				end_room;
 	int				nb_fourmis;

@@ -40,8 +40,8 @@ int print_room_end(t_dll_l *room_link, void *ptr)
 void print_data(t_data *data)
 {
 	ft_printf("%d \n", data->nb_fourmis);
-	dll_func(data->room, &print_room_end, NULL, ALL_LIST);
-	dll_func(data->tunnel, print_tunnel_end, NULL, ALL_LIST);
+	dll_func(&data->room, &print_room_end, NULL, ALL_LIST);
+	dll_func(&data->tunnel, print_tunnel_end, NULL, ALL_LIST);
 	ft_printf(" \n");
 }
 

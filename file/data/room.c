@@ -28,7 +28,7 @@ int new_checked_room_link(char *name, t_data *data, t_dll_l **ptr_link)
 		  new_dll_l(&room, sizeof(t_room), &room_link) == OK;
 	if (ret == OK)
 	{
-		if (dll_func(data->room, is_right_room, room_link, ALL_LIST) != NULL)
+		if (dll_func(&data->room, is_right_room, room_link, ALL_LIST) != NULL)
 		{
 			destroy_dll_l(&room_link, NULL);
 			ret = FAIL;

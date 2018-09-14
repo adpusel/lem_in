@@ -60,12 +60,12 @@ void	fill_map_with_tunnel(t_data *data, t_map *map)
 	size_t		x;
 	size_t		y;
 
-	tunnel_link = data->tunnel->top;
+	tunnel_link = data->tunnel.top;
 	while (tunnel_link)
 	{
 		tunnel = tunnel_link->content;
-		x = dll_func_index(data->room, same_name, tunnel->room_1->name, ALL_LIST);
-		y = dll_func_index(data->room, same_name, tunnel->room_2->name, ALL_LIST);
+		x = dll_func_index(&data->room, same_name, tunnel->room_1->name, ALL_LIST);
+		y = dll_func_index(&data->room, same_name, tunnel->room_2->name, ALL_LIST);
 		map->map[(y * map->line) + x] = 1;
 		map->map[(x * map->line) + y] = 1;
 		tunnel_link = tunnel_link->next;

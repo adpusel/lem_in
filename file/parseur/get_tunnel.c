@@ -90,11 +90,11 @@ int build_tunnel_link(t_data *data, t_get_utils *utils)
 
 	tunnel_link = NULL;
 	ret =
-	 check_valid_room_name(utils->line, data->room, &room_1, &room_2) != OK
-	 && check_exist_tunnel(data->tunnel, room_1, room_2) == OK
+	 check_valid_room_name(utils->line, &data->room, &room_1, &room_2) != OK
+	 && check_exist_tunnel(&data->tunnel, room_1, room_2) == OK
 	 && new_tunnel_link(room_1, room_2, &tunnel_link) == OK;
 	if (ret == OK)
-		dll_add_at_index(tunnel_link, data->tunnel, ALL_LIST);
+		dll_add_at_index(tunnel_link, &data->tunnel, ALL_LIST);
 	return (ret);
 }
 
