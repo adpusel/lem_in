@@ -38,7 +38,7 @@ void set_up_algo(t_lem *lem, t_data *data)
 
 void t_dev(t_debug *db)
 {
-	db->print_parsing = FALSE;
+	db->print_parsing = TRUE;
 }
 
 int main()

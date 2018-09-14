@@ -12,20 +12,49 @@
 
 #include "../includes/all_includes.h"
 
-// todo repenser les message d'err pour le petit lemin
+int print_parsing_room_dll(t_dll_l *link, void *ptr)
+{
+	t_room *room;
+
+	(void) ptr;
+	room = link->content;
+	ft_printf("link n =   %10d \n", room->nb);
+	ft_printf("name :     %10s\n", room->name);
+	ft_printf("coordonnes %10d %10d\n", room->x, room->y);
+	ft_printf("================= \n\n");
+	return (FALSE);
+}
+
+void print_room_parsing(t_data *data, t_debug *debug)
+{
+	if (debug->print_parsing == TRUE)
+	{
+		sep("les room parses \nde la struct data.room");
+		dll_func(&data->room, print_parsing_room_dll, NULL, ALL_LIST);
+	}
+}
+
 int check_err_room(t_data *data)
 {
-	(void) data;
+	int ret;
 
-	//	if (data->start_room < 0)
-	//		return (print_err_retrun_int("pas de start", g_debug->print_err));
-	//	if (data->end_room < 0)
-	//		return (print_err_retrun_int("pas de end", g_debug->print_err));
-	//	if (data->start_room == data->end_room)
-	//		return (print_err_retrun_int("start et end sont les memes",
-	//									 g_debug->print_err));
-	//	else
-	return (TRUE);
+	ret = OK;
+	if (data->start_room < 0)
+	{
+		ft_printf("pas de room start \n");
+		ret = FALSE;
+	}
+	else if (data->end_room < 0)
+	{
+		ft_printf("pas de room end");
+		ret = FALSE;
+	}
+	else if (data->start_room == data->end_room)
+	{
+		ft_printf("la room start et la room end sont les memes \n");
+		ret = FALSE;
+	}
+	return (ret);
 }
 
 int manage_end_start(int i, t_data *data, t_get_utils *utils)
@@ -47,7 +76,7 @@ int manage_end_start(int i, t_data *data, t_get_utils *utils)
 	return (res);
 }
 
-int init_room_check_xy(t_room *room, char *line, int nb_line)
+int init_room_check_xy(t_room *room, char *line, int nb_line, int nb_room)
 {
 	t_split split;
 	int ret;
@@ -66,12 +95,11 @@ int init_room_check_xy(t_room *room, char *line, int nb_line)
 		ft_printf("ligne %d, y n'est pas un int | positif", nb_line);
 		ret = FALSE;
 	}
+	room->nb = nb_room;
 	ft_free_split(&split.tab);
 	return (ret);
 }
 
-// je ne suis pas proteger ici si j'ai deux start ? // plus simple de le set a la
-// fin au cas ou :)
 int test_add_room_link(t_data *data, t_get_utils *utils, int nb_line)
 {
 	static int nb_room = 0;
@@ -84,37 +112,32 @@ int test_add_room_link(t_data *data, t_get_utils *utils, int nb_line)
 	t++;
 	ft_zero(&room, sizeof(room));
 	if (1
-		&& init_room_check_xy(&room, utils->line, nb_line) == OK
+		&& init_room_check_xy(&room, utils->line, nb_line, nb_room) == OK
 		&& dll_func(&data->room, is_right_room, &room, ALL_LIST) == NULL
 		&& new_dll_l(&room, sizeof(t_room), &room_link) == OK)
 	{
-		room.nb = nb_room;
+
 		dll_add_at_index(room_link, &data->room, ALL_LIST);
+		manage_end_start(nb_room, data, utils);
 	}
 	else
 	{
+		ft_printf("err est a la ligne %d\n", nb_line);
 		return (FALSE);
 	}
 	++nb_room;
 	return (TRUE);
 }
 
-/*
-**si count space == 2 --> je split et donne les 3 a create room_link
-**si pas de space je stop
-*/
-
-int get_room(t_data *data, t_get_utils *utils)
+int get_room(t_data *data, t_get_utils *utils, t_debug *debug)
 {
 	static int nb_line;
+	int ret;
 
 	while (ask_data_list(TRUE, &utils->line, &nb_line, NULL) == OK)
 	{
-		// TODO : set le start et and a la fin en recherchant la room par nom
-		// a check si pas trop chiant, par nb plus rapide
 		if (utils->line[0] == '#')
 			utils->type_salle = manage_comment(utils->line);
-
 		else if (ft_how_many_char(' ', utils->line) == 2)
 		{
 			if (ft_how_many_char('-', utils->line) > 0 ||
@@ -124,10 +147,13 @@ int get_room(t_data *data, t_get_utils *utils)
 				return (FALSE);
 			}
 			if (test_add_room_link(data, utils, nb_line) != OK)
-				break;
+				return (FALSE);
 		}
 		else
-			break;
+			return (FALSE);
 	}
-	return (check_err_room(data));
+	ret = check_err_room(data);
+	if (ret == OK)
+		print_room_parsing(data, debug);
+	return (ret);
 }

@@ -47,7 +47,7 @@ int lem_get_option(t_debug *deb, t_dll *data_list);
 **    Parseur ==================================================================
 */
 
-int read_and_parse_data(t_data *data, t_debug *db);
+int read_and_parse_data(t_data *data, t_debug *debug);
 
 /*
 **    split
@@ -103,7 +103,7 @@ void	free_lem(t_lem *lem);
 
 int lem_getter(t_getter *get);
 int		get_tunnel(t_data *data, t_get_utils *utils);
-int		get_room(t_data *data, t_get_utils *utils);
+int get_room(t_data *data, t_get_utils *utils, t_debug *debug);
 void	fill_map_with_tunnel(t_data *data, t_map *map);
 
 /*

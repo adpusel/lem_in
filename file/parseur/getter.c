@@ -68,15 +68,15 @@ void set_up_parser_data(t_data *data, t_getter *get, t_debug *debug)
 // je fais pas ca !
 // le pb est que avec les options je dois get avant toute les lignes
 
-int read_and_parse_data(t_data *data, t_debug *db)
+int read_and_parse_data(t_data *data, t_debug *debug)
 {
 	int ret;
 	t_getter get;
 
-	set_up_parser_data(data, &get, db);
+	set_up_parser_data(data, &get, debug);
 	ret = get_nb_foumis(&get) == OK
-		  && get_room(get.data, &get.utils) == OK
-		  && get_tunnel(get.data, &get.utils) == OK;
+		  && get_room(get.data, &get.utils, debug) == OK;
+//		  && get_tunnel(get.data, &get.utils) == OK;
 	ft_str_free(&get.utils.line);
 	//	if (g_debug->parseur == TRUE)
 	//		check_data(data);
