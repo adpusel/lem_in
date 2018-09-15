@@ -27,6 +27,7 @@ int set_debug(t_db *db);
 void sep(char *text);
 int print_list_input_fd(t_dll_l *link, void *ptr);
 void print_room_parsing(t_data *data, t_debug *debug);
+void print_tunnel_parsing(t_data *data, t_debug *debug);
 
 /*
 **   get input
@@ -45,11 +46,17 @@ int lem_get_option(t_debug *deb, t_dll *data_list);
 
 
 /*
+**    destroy
+*/
+void		*destroy_finder(t_finder *finder);
+
+/*
 **    Parseur ==================================================================
 */
 
 int read_and_parse_data(t_data *data, t_debug *debug);
-
+int check_valid_room_name(char *line, t_dll *room_list, t_room **room_1,
+ t_room **room_2);
 /*
 **    split
 */
@@ -103,7 +110,7 @@ void	destroy_map(t_map *map);
 void	free_lem(t_lem *lem);
 
 int lem_getter(t_getter *get);
-int		get_tunnel(t_data *data, t_get_utils *utils);
+int get_tunnel(t_data *data, t_get_utils *utils, t_debug *debug);
 int get_room(t_data *data, t_get_utils *utils, t_debug *debug);
 void	fill_map_with_tunnel(t_data *data, t_map *map);
 

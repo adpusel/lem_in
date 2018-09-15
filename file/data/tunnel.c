@@ -42,7 +42,6 @@ void	get_max_path(t_data *data, t_map *map_ptr)
 }
 
 
-// je veux connaitre l'index de ma room
 int		same_name(t_dll_l *current_link, void *ptr)
 {
 	t_room	*room;
@@ -70,27 +69,4 @@ void	fill_map_with_tunnel(t_data *data, t_map *map)
 		map->map[(x * map->line) + y] = 1;
 		tunnel_link = tunnel_link->next;
 	}
-	// TODO : debug print
-//	if (g_debug->map_tunnel)
-//	{
-//		ft_printf("\n\n---> la carte des link enter les salles \n\n");
-//		print_map(map->map, map->col);
-//		ft_printf("\n-------------------------------- \n\n");
-//	}
-}
-
-int	new_tunnel_link(t_room *room_1, t_room *room_2, t_dll_l **tunnel_link)
-{
-	t_tunnel		tunnel; //todo mettre en static
-	int ret;
-
-	tunnel.room_1 = room_1;
-	tunnel.room_2 = room_2;
-	ret = new_dll_l(&tunnel, sizeof(t_tunnel), tunnel_link);
-	return (ret);
-}
-
-void	destroy_tunnel(void *ptr_tunnel)
-{
-	free(ptr_tunnel);
 }

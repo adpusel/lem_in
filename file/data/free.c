@@ -12,6 +12,7 @@
 
 #include "../includes/all_includes.h"
 
+// TODO : free map
 void kill_algo(t_algo *algo)
 {
 	destroy_map(&algo->map);
@@ -25,4 +26,13 @@ void free_lem(t_lem *lem)
 	destroy_dll_stack(&lem->data.room, &destroy_room);
 	destroy_dll_stack(&lem->data.tunnel, &destroy_tunnel);
 	kill_algo(&lem->algo);
+}
+
+void		*destroy_finder(t_finder *finder)
+{
+	free(finder->taken_room);
+	destroy_dll_stack(&finder->working_path, NULL);
+	destroy_dll_stack(&finder->new_path, NULL);
+	free(finder);
+	return (NULL);
 }

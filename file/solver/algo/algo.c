@@ -12,14 +12,6 @@
 
 #include "../../includes/all_includes.h"
 
-void		*destroy_finder(t_finder *finder)
-{
-	free(finder->taken_room);
-	destroy_dll_stack(&finder->working_path, NULL);
-	destroy_dll_stack(&finder->new_path, NULL);
-	free(finder);
-	return (NULL);
-}
 
 t_move		*is_solution(t_finder *finder, t_data *data)
 {

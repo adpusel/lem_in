@@ -50,14 +50,10 @@ int ask_data_list(
  t_dll *data_list)
 {
 	static t_dll_l *link = NULL;
-	static int counter = 0;
 	static int cur_line = 0;
 
-	if (counter == 0)
-	{
-		link = data_list->top;
-		counter = 1;
-	}
+	t_dll_l *dev_link;
+	link = link == NULL ? data_list->top : link;
 	if (link != NULL)
 	{
 		if (next_line == NEXT)
@@ -66,11 +62,12 @@ int ask_data_list(
 			link = link->next;
 		}
 		if (next_line == PREV)
-		    link = link->prev;
+			link = link->prev;
 		if (ptr_nb_line != NULL)
 			*ptr_nb_line = cur_line;
-		*line = link->content;
-		return (OK);
+		dev_link = link;
+		*line = link != NULL ? link->content : NULL;
+		return (link != NULL ? OK : FALSE);
 	}
 	else
 		return (FALSE);
