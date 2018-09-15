@@ -39,7 +39,7 @@ t_move		*is_solution(t_finder *finder, t_data *data)
 //}
 
 // TODO : set la map, ensuite set la
-int run_algo(t_algo algo, t_data *data, t_move *move)
+int run_algo(t_algo algo, t_data *data, t_move *move, t_debug *debug)
 {
 //	t_finder		*finder;
 //	t_dll_l			*path_l;
@@ -47,7 +47,7 @@ int run_algo(t_algo algo, t_data *data, t_move *move)
 	(void)move;
 	algo.cache.end_room = data->end_room;
 	// TODO : appel memoir a check !!
-	set_up_tunnel_map(&algo.map, data);
+	set_up_tunnel_map(&algo.map, data, debug);
 //	finder = new_finder(data, data->start_room, map, cache);
 //	path_l = new_path_link(finder->start_room, NULL, finder->all_path, 0);
 //	split_path(map, finder, path_l->content);

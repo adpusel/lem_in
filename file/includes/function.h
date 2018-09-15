@@ -68,6 +68,7 @@ size_t	split_all_path(t_finder *finder, t_map *map);
 /*
 **    run_algo
 */
+int run_algo(t_algo algo, t_data *data, t_move *move, t_debug *debug);
 int shorty_baby(t_finder **finder, t_cache *cache, t_data *data, t_map *map);
 void	print_name(int a);
 void	print_map(char *tab_room, size_t size_line);
@@ -103,7 +104,6 @@ void	print_path(t_path *path);
 t_map	*generate_path_map(t_dll *room, t_dll *path_lst);
 void	find_best_path(t_map *map, t_best *best);
 
-int run_algo(t_cache *cache, t_data *data, t_map *map, t_move *move);
 
 void	init_cache(t_cache *cache, t_data *data);
 void	clean_woking(t_finder *finder);
