@@ -9,7 +9,7 @@ le nombre de connextion entre les rooms,
 je prends une room et je la branche avec combien de
 room max je peux la brancher.
 
-short algo :
+short run_algo :
     1 --> refractoring
     2 -->
     2 --> les options d'affichage

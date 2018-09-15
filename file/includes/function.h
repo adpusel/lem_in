@@ -50,6 +50,8 @@ int lem_get_option(t_debug *deb, t_dll *data_list);
 */
 void		*destroy_finder(t_finder *finder);
 
+
+
 /*
 **    Parseur ==================================================================
 */
@@ -64,11 +66,12 @@ void	split_path(t_map *map, t_finder *finder, t_path *cur_path);
 size_t	split_all_path(t_finder *finder, t_map *map);
 
 /*
-**    algo
+**    run_algo
 */
 int shorty_baby(t_finder **finder, t_cache *cache, t_data *data, t_map *map);
 void	print_name(int a);
 void	print_map(char *tab_room, size_t size_line);
+int set_up_tunnel_map(t_map *map, t_data *data, t_debug *debug);
 
 /*
 **    debugs
@@ -100,7 +103,7 @@ void	print_path(t_path *path);
 t_map	*generate_path_map(t_dll *room, t_dll *path_lst);
 void	find_best_path(t_map *map, t_best *best);
 
-t_move	*algo(t_cache *cache, t_data *data, t_map *map);
+int run_algo(t_cache *cache, t_data *data, t_map *map, t_move *move);
 
 void	init_cache(t_cache *cache, t_data *data);
 void	clean_woking(t_finder *finder);
@@ -112,7 +115,7 @@ void	free_lem(t_lem *lem);
 int lem_getter(t_getter *get);
 int get_tunnel(t_data *data, t_get_utils *utils, t_debug *debug);
 int get_room(t_data *data, t_get_utils *utils, t_debug *debug);
-void	fill_map_with_tunnel(t_data *data, t_map *map);
+void fill_map_with_tunnel(t_data *data, t_map *map, t_debug *debug);
 
 /*
 **    paseur utils
@@ -132,6 +135,6 @@ void add_x_y_surfinthenorme(int x, int y, t_room *room);
 **    destroy ========================================================
 */
 void	destroy_tunnel(void *ptr_tunnel);
-void	destroy_room(void *room_ptr);
+//void	destroy_room(void *room_ptr);
 
 #endif

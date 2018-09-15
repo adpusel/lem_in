@@ -59,6 +59,8 @@ int split_and_get_option(char *line, t_debug *debug)
 	{
 		if (check_char_into_str(debug->option_finded, 'p'))
 			debug->print_parsing = TRUE;
+		if (check_char_into_str(debug->option_finded, 'a'))
+			debug->print_algo = TRUE;
 		ret = TRUE;
 	}
 	else

@@ -15,7 +15,7 @@
 // TODO : free map
 void kill_algo(t_algo *algo)
 {
-	destroy_map(&algo->map);
+//	destroy_map(&algo->map);
 	destroy_dll_stack(&algo->cache.all_path, NULL);
 	destroy_dll_stack(&algo->cache.valid_path, NULL);
 	free(algo);
@@ -23,8 +23,8 @@ void kill_algo(t_algo *algo)
 
 void free_lem(t_lem *lem)
 {
-	destroy_dll_stack(&lem->data.room, &destroy_room);
-	destroy_dll_stack(&lem->data.tunnel, &destroy_tunnel);
+//	destroy_dll_stack(&lem->data.room, &destroy_room);
+//	destroy_dll_stack(&lem->data.tunnel, &destroy_tunnel);
 	kill_algo(&lem->algo);
 }
 

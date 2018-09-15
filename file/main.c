@@ -14,38 +14,17 @@
 
 int g_build;
 
-void set_up_algo(t_lem *lem, t_data *data)
-{
-	t_map *map;
-	t_cache *cache;
-	t_algo *algo;
-
-	// faire les allocation de memoire
-	(void) "  set up cache  ";
-	algo = &lem->algo;
-	cache = &algo->cache;
-	// TODO : pas besoin de protection si je fais dans la stack
-	cache->end_room = data->end_room;
-
-	(void) "  set up map  ";
-	map = &algo->map;
-	map->col = data->room.length;
-	map->size = data->room.length * data->room.length;
-	fill_map_with_tunnel(data, map);
-}
-
-
-
 void t_dev(t_debug *db)
 {
 	db->print_parsing = FALSE;
+	db->print_algo = TRUE;
 }
 
 int main()
 {
 	t_lem lem;
 	ft_zero(&lem, sizeof(t_lem));
-	//	t_move move;
+	t_move move;
 	//	int ret;
 
 	/*------------------------------------*\
@@ -67,16 +46,12 @@ int main()
 	// TODO : set le debug avec les options
 	//	set_debug(&g_debug);
 
+	// TODO : si err, quitter en free tout correctement
 	read_and_parse_data(&lem.data, &lem.debug);
-	// TODO : check si le sizeof marche bien
-	// je gere l'erreur ici c'est plus clair
-	//		if (read_and_parse_data(&lem.data) == FAIL)
-	//		ft_printf("ERROR in data given \n");
 	{
-		// TODO : set directement dans algo sont setup
-		//		set_up_algo(lem, lem->data);
+		run_algo(&lem.algo.cache, &lem.data, &lem.algo.map, &move);
 		// TODO : comme ca je peux mettre directement dans unr boucle de if les retour
-		//		move = algo(&lem->algo->cache, lem->data, lem->algo->map);
+		//		move = algo(&lem->algo->cache, lem->data, lem->run_algo->map);
 		// TODO : refaire bien ici avec le print des data aussi dans une boucle
 		//		if (move != NULL)
 		//		{

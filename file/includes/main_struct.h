@@ -18,6 +18,14 @@
 #include "struct_parser.h"
 #include "struct_algo.h"
 
+
+typedef struct		s_debug
+{
+	char			option_finded[10];
+	int				print_parsing;
+	int				print_algo;
+} 					t_debug;
+
 /*
 **    data
 */
@@ -37,14 +45,8 @@ typedef struct		s_algo
 {
 	t_cache			cache;
 	t_map			map;
+	t_debug			*debug;
 }					t_algo;
-
-
-typedef struct		s_debug
-{
-	char			option_finded[10];
-	int				print_parsing;
-} 					t_debug;
 
 /*
 **    lem ========================================================
