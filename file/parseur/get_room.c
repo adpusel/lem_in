@@ -82,7 +82,7 @@ int init_room_check_xy(t_room *room, char *line, int nb_line, int nb_room)
 **    test et ajoute apres verification le link
 */
 
-int test_add_room_link(t_data *data, t_get_utils *utils, int nb_line)
+int test_add_room_link(t_data *data, t_get_utils *utils)
 {
 	static int nb_room = 0;
 	t_room room;
@@ -94,7 +94,7 @@ int test_add_room_link(t_data *data, t_get_utils *utils, int nb_line)
 	t++;
 	ft_zero(&room, sizeof(room));
 	if (1
-		&& init_room_check_xy(&room, utils->line, nb_line, nb_room) == OK
+		&& init_room_check_xy(&room, utils->line, utils->nb_line, nb_room) == OK
 		&& dll_func(&data->room, is_right_room, &room, ALL_LIST) == NULL
 		&& new_dll_l(&room, sizeof(t_room), &room_link) == OK)
 	{
@@ -104,7 +104,7 @@ int test_add_room_link(t_data *data, t_get_utils *utils, int nb_line)
 	}
 	else
 	{
-		ft_printf("err est a la ligne %d\n", nb_line);
+		ft_printf("err est a la ligne %d\n", utils->nb_line);
 		return (FALSE);
 	}
 	++nb_room;
@@ -117,10 +117,9 @@ int test_add_room_link(t_data *data, t_get_utils *utils, int nb_line)
 
 int get_room(t_data *data, t_get_utils *utils, t_debug *debug)
 {
-	static int nb_line;
 	int ret;
 
-	while (ask_data_list(TRUE, &utils->line, &nb_line, NULL) == OK)
+	while (ask_data_list(NEXT, &utils->line, &utils->nb_line, NULL) == OK)
 	{
 		if (utils->line[0] == '#')
 			utils->type_salle = manage_comment(utils->line);
@@ -129,10 +128,10 @@ int get_room(t_data *data, t_get_utils *utils, t_debug *debug)
 			if (ft_how_many_char('-', utils->line) > 0
 				|| utils->line[0] == 'L')
 			{
-				ft_printf("line %d --> err dans les rooms \n", nb_line);
+				ft_printf("line %d --> err dans les rooms \n", utils->nb_line);
 				return (FALSE);
 			}
-			if (test_add_room_link(data, utils, nb_line) != OK)
+			if (test_add_room_link(data, utils) != OK)
 				return (FALSE);
 		}
 		else

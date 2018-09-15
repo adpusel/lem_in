@@ -87,7 +87,7 @@ int lem_get_option(t_debug *deb, t_dll *data_list)
 			ret = FAIL;
 		}
 		else
-			ask_data_list(TRUE, &line, NULL, data_list);
+			ask_data_list(NEXT, &line, NULL, data_list);
 	}
 	// TODO : remettre le print des data
 //	if (ret == OK && deb->print_parsing == TRUE)

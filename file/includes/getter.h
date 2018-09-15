@@ -21,8 +21,8 @@
 typedef struct		s_get_utils
 {
 	char			*line;
-	int				fd;
 	int				type_salle;
+	int				nb_line;
 }					t_get_utils;
 
 /*

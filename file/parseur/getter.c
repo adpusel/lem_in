@@ -75,8 +75,8 @@ int read_and_parse_data(t_data *data, t_debug *debug)
 
 	set_up_parser_data(data, &get, debug);
 	ret = get_nb_foumis(&get) == OK
-		  && get_room(get.data, &get.utils, debug) == OK;
-//		  && get_tunnel(get.data, &get.utils) == OK;
+		  && get_room(get.data, &get.utils, debug) == OK
+		  && get_tunnel(get.data, &get.utils) == OK;
 	ft_str_free(&get.utils.line);
 	//	if (g_debug->parseur == TRUE)
 	//		check_data(data);

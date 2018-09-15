@@ -68,7 +68,6 @@ int check_valid_room_name(char *line, t_dll *room_list, t_room **room_1,
 	return (*room_1 && *room_2 ? OK : FAIL);
 }
 
-// s
 int check_exist_tunnel(t_dll *tunnel_list, t_room *room_1, t_room *room_2)
 {
 	t_tunnel tunnel;
@@ -100,10 +99,8 @@ int build_tunnel_link(t_data *data, t_get_utils *utils)
 
 int get_tunnel(t_data *data, t_get_utils *utils)
 {
-	int last_line;
-
-	last_line = 1;
-	while (utils->line && (last_line || ask_gnl(utils->fd, &utils->line, NULL, TRUE)))
+	ask_data_list(PREV, &utils->line, NULL, NULL);
+	while (ask_data_list(, &utils->line, &utils->nb_line, NULL))
 	{
 		if (utils->line[0] == '#')
 			continue;
@@ -114,7 +111,6 @@ int get_tunnel(t_data *data, t_get_utils *utils)
 		}
 		else
 			break;
-		last_line = 0;
 	}
 	return (TRUE);
 }

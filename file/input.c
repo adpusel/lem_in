@@ -36,12 +36,6 @@ int get_all_data_fd(int fd, t_dll *list)
 }
 
 /**
- * @param
- * @return FALSE --> tout est lu, TRUE --> reste des lines
- */
-
-
-/**
  * \brief 	au premier appel la function keep la list,
  * 			elle fonctionne comme ask gnl
  * @param next_line 	next_line si TRUE, passe a la seconde line
@@ -58,9 +52,7 @@ int ask_data_list(
 	static t_dll_l *link = NULL;
 	static int counter = 0;
 	static int cur_line = 0;
-	t_dll_l *dev_link;
 
-	dev_link = link;
 	if (counter == 0)
 	{
 		link = data_list->top;
@@ -68,11 +60,13 @@ int ask_data_list(
 	}
 	if (link != NULL)
 	{
-		if (next_line == TRUE)
+		if (next_line == NEXT)
 		{
 			cur_line++;
 			link = link->next;
 		}
+		if (next_line == PREV)
+		    link = link->prev;
 		if (ptr_nb_line != NULL)
 			*ptr_nb_line = cur_line;
 		*line = link->content;
