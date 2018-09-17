@@ -16,7 +16,7 @@ int g_build;
 
 void t_dev(t_debug *db)
 {
-	db->print_parsing = FALSE;
+	db->print_parsing = TRUE;
 	db->print_algo = TRUE;
 }
 
